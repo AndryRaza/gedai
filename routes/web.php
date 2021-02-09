@@ -57,6 +57,7 @@ Route::group(
         Route::resource('/mes-fiches','MesfichesController');
         Route::get('/mesfiches-list', 'MesfichesController@mesfichesList');
         Route::get('mes-fiches/desactivate/{id}', 'MesfichesController@desactivate');
+        Route::get('mes-fiches/activate/{id}', 'MesfichesController@activate');
     }
 
 );

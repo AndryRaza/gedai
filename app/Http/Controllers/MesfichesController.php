@@ -38,7 +38,7 @@ class MesfichesController extends Controller
     public function mesfichesList(Request $request)
     {
         $fiches = DB::table('fiches')
-       
+
             ->select(
                 'fiches.id',
                 'fiches.created_at',
@@ -59,33 +59,44 @@ class MesfichesController extends Controller
                 'fiches.commentaire',
                 'fiches.etat'
             )
-           
+
             ->join('utilisateurs', 'utilisateurs.id', '=', 'fiches.utilisateur_id')
             ->join('services', 'fiches.service_id', '=', 'services.id')
             ->join('categories', 'fiches.categorie_id', '=', 'categories.id')
             ->join('sous_categories', 'fiches.sous_categorie_id', '=', 'sous_categories.id')
             ->join('beneficiaires', 'fiches.beneficiaire_id', '=', 'beneficiaires.id')
             ->join('nature_actes', 'fiches.nature_acte_id', '=', 'nature_actes.id')
-            ->where('fiches.utilisateur_id','=',auth()->id())
+            ->where('fiches.utilisateur_id', '=', auth()->id())
             ->get();
 
 
 
         return datatables()->of($fiches)
+            ->addColumn('voir', function ($row) {
+                $btn = '<a href="/mes-fiches/' . $row->id . '" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+          </svg> </a>    ';
+                return $btn;
+            })
             ->addColumn('modifier', function ($row) {
                 $btn = '<a href="/mes-fiches/' . $row->id . '/edit"  class="btn btn-primary"> Modifier </a>    ';
                 return $btn;
             })
             ->addColumn('désactiver', function ($row) {
-                $btn = '<a href="mes-fiches/desactivate/' . $row->id . '"  class="btn btn-danger"> Désactiver </a>    ';
+                if ($row->etat == 1) {
+                    $btn = '<a href="mes-fiches/desactivate/' . $row->id . '"  class="btn btn-danger"> Désactiver </a>';
+                } else {
+                    $btn = '<a href="mes-fiches/activate/' . $row->id . '"  class="btn btn-success"> Activer </a>';
+                }
                 return $btn;
             })
 
-            ->rawColumns(['modifier', 'désactiver'])
+            ->rawColumns(['voir','modifier', 'désactiver'])
             ->editColumn('service_id', function ($user) {
                 return $user->service;
             })
-           /* ->editColumn('utilisateur_id', function ($user) {
+            /* ->editColumn('utilisateur_id', function ($user) {
                 return $user->nom_utilisateur . ' ' . $user->prenom_utilisateur;
             })*/
             ->editColumn('categorie_id', function ($user) {
@@ -124,12 +135,12 @@ class MesfichesController extends Controller
         $nature_actes = nature_acte::all();
         $type_benefs = type_beneficiaire::all();
 
-       return view('fiches.create', compact('categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
+        return view('fiches.create', compact('categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
     }
 
     public function storepdf(Request $request)
     {
-        
+
         $categories = categorie::all();
         $sous_categories = sous_categorie::all();
         $beneficiaires = beneficiaire::all();
@@ -142,11 +153,11 @@ class MesfichesController extends Controller
             ]
         );
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') .'-' .uniqid().".pdf";
-        request('pdf')->storeas('temp_pdf', $nom_fichier , 'public');
-       
+        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . uniqid() . ".pdf";
+        request('pdf')->storeas('temp_pdf', $nom_fichier, 'public');
+
         return $nom_fichier;
-        
+
         //return view('fiches.create', compact('nom_fichier', 'categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
     }
 
@@ -173,7 +184,7 @@ class MesfichesController extends Controller
 
         $montant_aide = $request->get('montant_aide') == NULL ? 0 : $request->get('montant_aide');
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-'. $request->get('numero_acte') .".pdf";
+        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
 
         $new_fiche = new fiche([
             'service_id' => auth()->user()->service_id,
@@ -198,7 +209,6 @@ class MesfichesController extends Controller
 
         flash('Fiche créée.');
         return redirect('fiches');
-
     }
 
     /**
@@ -209,7 +219,8 @@ class MesfichesController extends Controller
      */
     public function show($id)
     {
-        //
+        $fiche = fiche::find($id);
+        return view('mes-fiches.show', compact('fiche'));
     }
 
     /**
@@ -222,11 +233,11 @@ class MesfichesController extends Controller
     {
         $fiche = fiche::find($id);
         $categories = categorie::all();
-       // $sous_categories = sous_categorie::all();
+        // $sous_categories = sous_categorie::all();
         $beneficiaires = beneficiaire::all();
         $nature_actes = nature_acte::all();
         $type_benefs = type_beneficiaire::all();
-        
+
         $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
 
         flash('Fiche modifiée');
@@ -252,7 +263,7 @@ class MesfichesController extends Controller
             'beneficiaire' => 'required',
             'montant_aide' => 'integer|nullable',
             'tags' => 'required',
-            'pdf' =>'mimetypes:application/pdf|max:10000',
+            'pdf' => 'mimetypes:application/pdf|max:10000',
             'commentaire' => 'required|min:3|max:255|regex:/^[A-Za-z é è \' . - é à è ç ( )  $ * î 0-9]+$/'
         ]);
 
@@ -275,14 +286,14 @@ class MesfichesController extends Controller
 
 
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-'. $request->get('numero_acte') .".pdf";
-    
-        if ($request->file('pdf')){
-        $request->file('pdf')->storeas('pdf',$nom_fichier,'public');
+        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+
+        if ($request->file('pdf')) {
+            $request->file('pdf')->storeas('pdf', $nom_fichier, 'public');
         }
 
         $fiche->save();
-        return redirect('fiches');
+        return redirect('mes-fiches');
     }
 
     /**
@@ -314,15 +325,27 @@ class MesfichesController extends Controller
         return redirect('mes-fiches');
     }
 
-    public function send_mail(){
+    public function activate($id)
+    {
+
+        $fiche = fiche::find($id);
+        $fiche->etat = 1;
+
+        $fiche->save();
+
+        return redirect('mes-fiches');
+    }
+
+    public function send_mail()
+    {
 
         $data = fiche::all();
 
-        $pdf = PDF::loadView('mails.pdf',compact('data'));
-        $pdf->save(public_path('storage/temp_pdf/').'liste_fiches_'.auth()->id().'.pdf');
+        $pdf = PDF::loadView('mails.pdf', compact('data'));
+        $pdf->save(public_path('storage/temp_pdf/') . 'liste_fiches_' . auth()->id() . '.pdf');
 
         Mail::to('claude@example.com')
-        ->send(new ContactMail);
+            ->send(new ContactMail);
 
         return redirect('fiches');
     }

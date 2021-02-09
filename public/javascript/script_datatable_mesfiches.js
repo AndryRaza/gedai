@@ -29,9 +29,10 @@ $(document).ready(function(){
             }],
         ajax:'/mesfiches-list',
         columns:[
+            {data:'voir',name:'voir'},
             {data: 'id', name:'id'},
             {data: 'created_at', name:'created_at'},
-            {data: 'updated_at', name:'updated_at'},
+           // {data: 'updated_at', name:'updated_at'},
            // {data: 'service_id', name:'service_id'},
             //{data: 'utilisateur_id', name:'utilisateur_id'},
             {data: 'categorie_id', name:'categorie_id'},
