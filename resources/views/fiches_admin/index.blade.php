@@ -16,7 +16,7 @@
 </div>
 
 <h1 class="text-center">Liste des fiches </h1>
-<table class="table table-bordered table-striped " id="laravel_datatable">
+<table class="table table-bordered table-striped table-hover" id="laravel_datatable">
     <thead>
         <tr>
             <th></th>

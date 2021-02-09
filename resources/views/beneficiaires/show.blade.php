@@ -9,6 +9,8 @@
     </ol>
 </nav>
 
+
+<h2 class="text-center"> {{$beneficiaire->nom}} {{$beneficiaire->prenom}} </h2>
 <section class="row row-cols-md-2 row-cols-1 px-3">
     <div class="col">
         <table class="table table-bordered">

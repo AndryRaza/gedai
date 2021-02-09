@@ -39,7 +39,7 @@
     </form>
 </div>
 
-<section>
+<section class="px-2">
     <div class="table-reponsive">
         <table class="table table-bordered">
             <thead>

@@ -18,7 +18,7 @@
     <div class="container w-25  mb-3 text-center">
         @include('flash::message')
     </div>
-    <table class="table table-bordered table-striped" id="laravel_datatable">
+    <table class="table table-bordered table-striped table-hover" id="laravel_datatable">
         <thead>
             <tr>
                 <th></th>

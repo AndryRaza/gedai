@@ -16,7 +16,7 @@
     @include('flash::message')
 </div>
 <div class=" mb-3">
-    <table class="table table-bordered table-striped" id="laravel_datatable">
+    <table class="table table-bordered table-striped table-hover" id="laravel_datatable">
         <thead>
             <tr>
                 <th scope="col">#</th>
