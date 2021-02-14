@@ -35,4 +35,8 @@ $(document).ready(function(){
             {data: 'désactiver', name:'désactiver', orderable:false, searchable:false},
         ]
     })
+
+ 
+
+
 })

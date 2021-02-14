@@ -289,6 +289,7 @@ class FichesAdminController extends Controller
 
         if ($request->file('pdf')) {
             $request->file('pdf')->storeas('pdf', $nom_fichier, 'public');
+            $fiche->url_pdf =  $nom_fichier;
         }
 
         $fiche->save();

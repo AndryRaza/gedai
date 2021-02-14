@@ -13,7 +13,7 @@
 <h1 class="text-center">Modifier la fiche n°{{$fiche ->id }}</h1>
 
 
-<div class="container">
+<div>
     <div class="row row-cols-md-2 row-cols-1">
         <div class="col">
             <form action="{{ route('mes-fiches.update',$fiche->id) }}" method="post" enctype="multipart/form-data">

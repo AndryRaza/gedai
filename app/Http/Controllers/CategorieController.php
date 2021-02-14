@@ -30,12 +30,30 @@ class CategorieController extends Controller
                 $btn = '<a href="/categories/' . $row->id . '/edit"  class="btn btn-primary text-center"> Modifier </a>    ';
                 return $btn;
             })
+            
             ->addColumn('désactiver', function ($row) {
                 if ($row->etat == 1)
                 {  $btn = '<a href="categories/desactivate/' . $row->id . '"  class="btn btn-danger"> Désactiver </a>';}
                 else  {  $btn = '<a href="categories/activate/' . $row->id . '"  class="btn btn-success"> Activer </a>';}
                   return $btn;
             })
+            /*
+            
+            ->addColumn('désactiver', function ($row) {
+
+                if ($row->etat === 1) {
+                    $switch = '<div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked  value="' . $row->id . '">
+              </div>';
+                }
+                if ($row->etat === 0) {
+                    $switch = '<div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  value="' . $row->id . '">
+              </div>';
+                }
+                return $switch;
+            })
+            */
             ->editColumn('etat', function ($sscat) {
                 if ($sscat->etat === 1) {
                     return 'Actif';
@@ -77,7 +95,7 @@ class CategorieController extends Controller
 
         $new_categorie->save();
 
-       flash('Catégorie ajoutée');
+        flash('Catégorie ajoutée');
         return redirect('categories');
     }
 
@@ -124,7 +142,7 @@ class CategorieController extends Controller
         $categorie->etat = $request->get('etat');
 
         $categorie->save();
-        
+
         flash('Catégorie modifiée');
         return redirect('categories');
     }
@@ -161,5 +179,4 @@ class CategorieController extends Controller
 
         return redirect('categories');
     }
-
 }

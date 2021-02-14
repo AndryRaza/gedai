@@ -33,6 +33,20 @@
 @push('scripts')
 <script src="{{asset('javascript/script_datatable_categories.js')}}">
 </script>
-
-
 @endpush
+
+<script>
+    const btn = document.querySelectorAll('input[type="checkbox"]');
+    //btn =  document.getElementsByTagName("input"); 
+    console.log(btn);
+    btn.forEach(element => {
+
+        element.addEventListener('click', () => {
+            if (element.checked) {
+                console.log(element.value);
+            }
+        });
+
+
+    });
+</script>
