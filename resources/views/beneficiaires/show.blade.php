@@ -73,11 +73,11 @@
                 </tr>
                 <tr>
                     <td class="table-dark">Téléphone fixe</td>
-                    <td> {{ $beneficiaire->tel_fixe}}</td>
+                    <td> {{ $beneficiaire->tel_fixe == 0 ? 'Pas de numéro' : $beneficiaire->tel_fixe }}</td>
                 </tr>
                 <tr>
                     <td class="table-dark">Téléphone mobile</td>
-                    <td> {{ $beneficiaire->tel_mobile}}</td>
+                    <td> {{ $beneficiaire->tel_mobile == 0 ? 'Pas de numéro' : $beneficiaire->tel_mobile }}</td>
                 </tr>
                 <tr>
                     <td class="table-dark">Adresse électronique</td>

@@ -29,8 +29,8 @@
 
 <div class="d-flex flex-column align-items-center mb-3 ">
     <h2 class="text-center">Statistiques</h2>
-    <form>
-        <select class="form-control" name="stats_type" id="stats_type">
+    <form class="d-flex">
+        <select class="form-select" name="stats_type" id="stats_type">
             <option>----</option>
             @foreach ($categories as $categorie)
             <option value="{{ $categorie->id }}"> {{$categorie->categorie}} </option>

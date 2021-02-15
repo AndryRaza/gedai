@@ -93,6 +93,7 @@
         </div>
 
         <button class="btn btn-primary mb-3" type="submit">Modifier</button>
+        <p class="mb-3"> *Champs non obligatoires </p>
     </form>
 </div>
 @endsection

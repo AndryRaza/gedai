@@ -87,7 +87,14 @@ class FicheController extends Controller
             ->editColumn('nature_acte_id', function ($user) {
                 return $user->acte;
             })
+            ->editColumn('url_pdf', function ($fiche) {
+                $link = '<a id="view_pdf" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-pdf="'. $fiche->url_pdf .'">'
+               .  $fiche->url_pdf  .
+             ' </a>';
 
+              return $link;
+            })
+            ->rawColumns(['url_pdf'])
             /* ->editColumn('etat', function ($sscat) {
                 if ($sscat->etat === '1') {
                     return 'Actif';

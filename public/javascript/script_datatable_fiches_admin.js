@@ -33,12 +33,12 @@ $(document).ready(function(){
             {data: 'utilisateur_id', name:'utilisateur_id'},
             {data: 'categorie_id', name:'categorie_id'},
             {data: 'sous_categorie_id', name:'sous_categorie_id'},
-            {data: 'beneficiaire_id', name:'beneficiaire_id'},
+            //{data: 'beneficiaire_id', name:'beneficiaire_id'},
             //{data: 'nature_acte_id', name:'nature_acte_id'},
            /* {data: 'date_enregistrement', name:'date_enregistrement'},
             {data: 'date_acte', name:'date_acte'},*/
             {data: 'numero_acte', name:'numero_acte'},
-           // {data: 'url_pdf', name:'url_pdf'},
+           {data: 'url_pdf', name:'url_pdf'},
            /* {data: 'montant_aide', name:'montant_aide'},
             {data: 'tags', name:'tags'},
             {data: 'commentaire', name:'commentaire'},*/

@@ -2,15 +2,25 @@
 
 @section('content')
 
+<style>
+
+#view_pdf:hover{
+cursor: pointer;
+color:red; 
+}
+
+</style>
+
+
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/fiches">Fiches</a></li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/fiches">Fiches</a></li>
+    </ol>
 </nav>
 
 <h1 class="text-center my-5">
 
-   Liste des fiches 
+    Liste des fiches
 
 </h1>
 
@@ -19,6 +29,7 @@
         @include('flash::message')
     </div>
     <table class="table table-bordered table-striped table-hover" id="laravel_datatable">
+
         <thead>
             <tr>
                 <th scope="col">id</th>
@@ -32,14 +43,42 @@
                 <th scope="col">Pdf</th>
             </tr>
         </thead>
-      
+
     </table>
+
 </div>
 
 <span class="d-flex justify-content-center">
-    
     <a href="/send_mail"><button class="btn btn-primary mb-5">Envoyer la liste par mail</button></a>
-    </span>
+</span>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="height:400px" >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  $('body').on('click','#view_pdf',function(){
+    var pdf = $(this).data('pdf');
+    console.log(pdf);
+    var str = ` <iframe class="w-100 h-100" src="{{asset('storage/pdf/` + pdf + `')}}" style="max-height:400px;"></iframe>`
+    console.log(str)
+    $('.modal-body').html(str);
+  })
+</script>
 
 @endsection
 

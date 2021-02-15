@@ -41,11 +41,14 @@ $(document).ready(function () {
       /* {data: 'date_enregistrement', name:'date_enregistrement'},
        {data: 'date_acte', name:'date_acte'},*/
       { data: 'numero_acte', name: 'numero_acte' },
-      { data: 'url_pdf', name: 'url_pdf' },
+      { data: 'url_pdf', name: 'url_pdf'},
       /*  {data: 'montant_aide', name:'montant_aide'},
         {data: 'tags', name:'tags'},
         {data: 'commentaire', name:'commentaire'},*/
       //  {data : 'etat', name:'etat'},
     ]
   })
+
+
+
 })

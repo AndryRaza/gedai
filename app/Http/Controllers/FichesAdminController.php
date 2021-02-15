@@ -90,7 +90,7 @@ class FichesAdminController extends Controller
                 }
                 return $btn;
             })
-            ->rawColumns(['voir','modifier', 'désactiver'])
+            ->rawColumns(['voir','modifier', 'désactiver','url_pdf'])
             ->editColumn('service_id', function ($user) {
                 return $user->service;
             })
@@ -109,7 +109,13 @@ class FichesAdminController extends Controller
             ->editColumn('nature_acte_id', function ($user) {
                 return $user->acte;
             })
+            ->editColumn('url_pdf', function ($fiche) {
+                $link = '<a id="view_pdf" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-pdf="'. $fiche->url_pdf .'">'
+               .  $fiche->url_pdf  .
+             ' </a>';
 
+              return $link;
+            })
             ->editColumn('etat', function ($sscat) {
                 if ($sscat->etat === '1') {
                     return 'Actif';

@@ -167,8 +167,8 @@ class BeneficiaireController extends Controller
             'type_benef'=>'required|integer',
             'organisme'=>'required|min:3|max:255|regex:/^[A-Za-z é è \' . -]+$/',
             'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . ,]+$/',
-            'tel_fixe'=>'required|integer',
-            'tel_mobile'=>'required|integer',
+            'tel_fixe'=>'integer|nullable',
+            'tel_mobile'=>'integer|nullable',
             'email'=>'required|email',
       
             'etat'=>'required|integer'
