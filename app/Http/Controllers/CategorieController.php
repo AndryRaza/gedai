@@ -31,29 +31,30 @@ class CategorieController extends Controller
                 return $btn;
             })
             
+            /*
             ->addColumn('désactiver', function ($row) {
                 if ($row->etat == 1)
                 {  $btn = '<a href="categories/desactivate/' . $row->id . '"  class="btn btn-danger"> Désactiver </a>';}
                 else  {  $btn = '<a href="categories/activate/' . $row->id . '"  class="btn btn-success"> Activer </a>';}
                   return $btn;
             })
-            /*
+            */
             
             ->addColumn('désactiver', function ($row) {
 
                 if ($row->etat === 1) {
-                    $switch = '<div class="form-check form-switch">
+                    $switch = '<div class="form-check form-switch pl-5">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked  value="' . $row->id . '">
               </div>';
                 }
                 if ($row->etat === 0) {
-                    $switch = '<div class="form-check form-switch">
+                    $switch = '<div class="form-check form-switch pl-5">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  value="' . $row->id . '">
               </div>';
                 }
                 return $switch;
             })
-            */
+        
             ->editColumn('etat', function ($sscat) {
                 if ($sscat->etat === 1) {
                     return 'Actif';
@@ -166,7 +167,7 @@ class CategorieController extends Controller
 
         $categorie->save();
 
-        return redirect('categories');
+        //return redirect('categories');
     }
 
     public function activate($id)
@@ -177,6 +178,6 @@ class CategorieController extends Controller
 
         $categorie->save();
 
-        return redirect('categories');
+       // return redirect('categories');
     }
 }

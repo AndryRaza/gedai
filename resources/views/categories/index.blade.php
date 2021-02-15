@@ -27,6 +27,33 @@
     </table>
 </div>
 
+<script>
+  $('body').on('click','#flexSwitchCheckChecked',function(){
+    var checked = $(this).prop('checked');
+    var id = $(this).val();
+    if (!checked){
+        $.ajax({
+            url: '/categories/desactivate/'+id,
+            type:'GET',
+            success: function (data){
+                alert('Catégorie désactivée')
+            }
+        })
+    }
+
+    if (checked){
+        $.ajax({
+            url: '/categories/activate/'+id,
+            type:'GET',
+            success: function (data){
+                alert('Catégorie activée')
+            }
+        })
+    }
+
+
+  })
+</script>
 
 @endsection
 
@@ -34,19 +61,3 @@
 <script src="{{asset('javascript/script_datatable_categories.js')}}">
 </script>
 @endpush
-
-<script>
-    const btn = document.querySelectorAll('input[type="checkbox"]');
-    //btn =  document.getElementsByTagName("input"); 
-    console.log(btn);
-    btn.forEach(element => {
-
-        element.addEventListener('click', () => {
-            if (element.checked) {
-                console.log(element.value);
-            }
-        });
-
-
-    });
-</script>
