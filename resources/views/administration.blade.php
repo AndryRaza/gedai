@@ -25,11 +25,16 @@
 
 </div>
 
-
-
 <div class="d-flex flex-column align-items-center mb-3 ">
     <h2 class="text-center">Statistiques</h2>
-    <form class="d-flex">
+    <form class="d-flex flex-column">
+        <!--
+        <select class="form-select" name="stats_date" id="stats_date">
+            <option>----</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select>
+        -->
         <select class="form-select" name="stats_type" id="stats_type">
             <option>----</option>
             @foreach ($categories as $categorie)

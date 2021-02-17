@@ -190,7 +190,9 @@ class MesfichesController extends Controller
 
         $montant_aide = $request->get('montant_aide') == NULL ? 0 : $request->get('montant_aide');
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+       // $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+       $num_enregistrement = DB::table('fiches')->count();
+       $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $num_enregistrement. ".pdf";
 
         $new_fiche = new fiche([
             'service_id' => auth()->user()->service_id,
@@ -246,7 +248,7 @@ class MesfichesController extends Controller
 
         $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
 
-        flash('Fiche modifiée');
+       
         return view('mes-fiches.edit', compact('fiche', 'categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
     }
 
@@ -292,14 +294,14 @@ class MesfichesController extends Controller
 
 
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+        $nom_fichier = $request->get('nom_url');
 
         if ($request->file('pdf')) {
             $request->file('pdf')->storeas('pdf', $nom_fichier, 'public');
-            $fiche->url_pdf =  $nom_fichier;
         }
 
         $fiche->save();
+        flash('Fiche modifiée');
         return redirect('mes-fiches');
     }
 

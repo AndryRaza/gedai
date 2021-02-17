@@ -188,8 +188,11 @@ class FichesAdminController extends Controller
 
         $montant_aide = $request->get('montant_aide') == NULL ? 0 : $request->get('montant_aide');
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+       // $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
 
+       $num_enregistrement = DB::table('fiches')->count();
+       $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $num_enregistrement. ".pdf";
+        
         $new_fiche = new fiche([
             'service_id' => auth()->user()->service_id,
             'utilisateur_id' => auth()->user()->id,
@@ -273,7 +276,7 @@ class FichesAdminController extends Controller
         ]);
 
         $montant_aide = $request->get('montant_aide') == NULL ? 0 : $request->get('montant_aide');
-
+      
         $fiche = fiche::find($id);
 
         $fiche->service_id = auth()->user()->service_id;
@@ -289,13 +292,12 @@ class FichesAdminController extends Controller
         $fiche->tags = $request->get('tags');
         $fiche->commentaire = $request->get('commentaire');
 
-
-
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+        
+        $nom_fichier = $fiche->url_pdf;
+      
 
         if ($request->file('pdf')) {
             $request->file('pdf')->storeas('pdf', $nom_fichier, 'public');
-            $fiche->url_pdf =  $nom_fichier;
         }
 
         $fiche->save();
@@ -316,7 +318,6 @@ class FichesAdminController extends Controller
 
     public function selection($id)
     {
-
         $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
         return $sous_categories;
     }

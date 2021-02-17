@@ -52,7 +52,7 @@ Route::group(
         Route::view('/choix_pdf', 'fiches.choix_pdf');
         Route::post('/store_pdf', 'FicheController@storepdf');
 
-        Route::get('/create/selection/{id}', 'FicheController@selection');
+        Route::get('/create/selection_utilisateur/{id}', 'FicheController@selection');
 
         Route::resource('/mes-fiches','MesfichesController');
         Route::get('/mesfiches-list', 'MesfichesController@mesfichesList');
@@ -116,7 +116,7 @@ Route::group(
         Route::get('/fiches_admin-list', 'FichesAdminController@fiches_adminList');
         Route::get('fiches_admin/desactivate/{id}', 'FichesAdminController@desactivate');
         Route::get('fiches_admin/activate/{id}', 'FichesAdminController@activate');
-
+        Route::get('/create/selection/{id}', 'FicheController@selection');
         Route::post('/store_pdf_admin', 'FichesAdminController@storepdf');
     }
 );

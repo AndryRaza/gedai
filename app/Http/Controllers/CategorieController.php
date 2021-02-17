@@ -62,6 +62,7 @@ class CategorieController extends Controller
                     return 'Inactif';
                 }
             })
+            
             ->rawColumns(['modifier', 'désactiver'])
             ->make(true);
     }

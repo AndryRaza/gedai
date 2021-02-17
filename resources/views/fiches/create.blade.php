@@ -150,11 +150,35 @@
 @endsection
 
 @push('scripts')
+<!--
 <script src="{{asset('javascript/script.js')}}">
 
 </script>
+-->
+
+
 
 <script>
+    $('#categorie_acte').change(function() {
+        var value = $('#categorie_acte').val();
+        $.ajax({
+            url: "/create/selection_utilisateur/" + value,
+            type: 'GET',
+            data: {},
+            dataType: 'JSON',
+            success: function(data) {
+                txt = "";
+                for (i = 0; i < data.length; i++) {
+                    txt = txt + `<option value="` + data[i]['id'] + `">` + data[i]['sous_categorie'] + `</option>`;
+                }
+                document.getElementById('type_acte').innerHTML = txt;
+            },
+            error: function(e) {
+                console.log('fail');
+            }
+        })
+    });
+
     function envoyer() {
         event.preventDefault();
         if (document.getElementById("pdf").value != "") {

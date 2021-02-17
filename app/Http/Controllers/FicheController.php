@@ -58,6 +58,7 @@ class FicheController extends Controller
                 'fiches.commentaire',
                 'fiches.etat'
             )
+            ->where('fiches.service_id','=', auth()->user()->service_id)
             ->join('utilisateurs', 'utilisateurs.id', '=', 'fiches.utilisateur_id')
             ->join('services', 'fiches.service_id', '=', 'services.id')
             ->join('categories', 'fiches.categorie_id', '=', 'categories.id')
@@ -66,7 +67,7 @@ class FicheController extends Controller
             ->join('nature_actes', 'fiches.nature_acte_id', '=', 'nature_actes.id')
             ->get();
 
-
+            
 
         return datatables()->of($fiches)
             ->editColumn('service_id', function ($user) {
@@ -123,12 +124,13 @@ class FicheController extends Controller
 
     public function storepdf(Request $request)
     {
-
+        /*
         $categories = categorie::all();
         $sous_categories = sous_categorie::all();
         $beneficiaires = beneficiaire::all();
         $nature_actes = nature_acte::all();
         $type_benefs = type_beneficiaire::all();
+        */
 
         $request->validate(
             [
@@ -165,9 +167,14 @@ class FicheController extends Controller
             'commentaire' => 'required|min:3|max:255|regex:/^[A-Za-z é è \' . - é à è ç ( ) $ * î 0-9]+$/'
         ]);
 
+        
+
         $montant_aide = $request->get('montant_aide') == NULL ? 0 : $request->get('montant_aide');
 
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+       // $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+       $num_enregistrement = DB::table('fiches')->count();
+       $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $num_enregistrement. ".pdf";
+
 
         $new_fiche = new fiche([
             'service_id' => auth()->user()->service_id,
@@ -222,7 +229,7 @@ class FicheController extends Controller
 
         $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
 
-        flash('Fiche modifiée');
+       
         return view('fiches.edit', compact('fiche', 'categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
     }
 
@@ -266,16 +273,14 @@ class FicheController extends Controller
         $fiche->tags = $request->get('tags');
         $fiche->commentaire = $request->get('commentaire');
 
-
-
-        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+        $nom_fichier = $request->get('nom_url');
 
         if ($request->file('pdf')) {
             $request->file('pdf')->storeas('pdf', $nom_fichier, 'public');
-            $fiche->url_pdf =  $nom_fichier;
         }
 
         $fiche->save();
+        flash('Fiche modifiée');
         return redirect('fiches');
     }
 
@@ -292,7 +297,6 @@ class FicheController extends Controller
 
     public function selection($id)
     {
-
         $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
         return $sous_categories;
     }
