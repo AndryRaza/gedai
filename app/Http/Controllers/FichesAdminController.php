@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
-
+use setasign\Fpdi\Fpdi;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use PDF;
@@ -213,6 +213,26 @@ class FichesAdminController extends Controller
         $new_fiche->save();
 
         File::move(public_path('storage/temp_pdf/') .  $request->get('nom_pdf'), public_path('storage/pdf/') . $nom_fichier);
+
+        $pdf = new Fpdi('P');
+        $pagecount = $pdf->setSourceFile(public_path('storage/pdf/') . $nom_fichier);
+
+        for ($pageno = 1; $pageno <= $pagecount; $pageno++) {
+            
+            $tpl = $pdf->importPage($pageno);
+            
+            $pdf->AddPage();
+
+            $pdf->useTemplate($tpl);
+
+            $pdf->SetFont('Helvetica');
+            $pdf->SetFontSize('10');
+            $pdf->SetXY(10, 10);
+            if ($pageno === 1)
+            {$pdf->Cell(0, 2, $nom_fichier, 0, 0, 'C');}
+        }
+
+        $pdf->Output('F', public_path('storage/pdf/') . $nom_fichier);
 
         flash('Fiche créée.');
         return redirect('fiches_admin');

@@ -15,10 +15,14 @@ use DataTables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-
 use Illuminate\Support\Facades\Mail;
+
+use setasign\Fpdi\Fpdi;
+
 use App\Mail\ContactMail;
 use PDF;
+
+
 
 
 class FicheController extends Controller
@@ -58,7 +62,7 @@ class FicheController extends Controller
                 'fiches.commentaire',
                 'fiches.etat'
             )
-            ->where('fiches.service_id','=', auth()->user()->service_id)
+            ->where('fiches.service_id', '=', auth()->user()->service_id)
             ->join('utilisateurs', 'utilisateurs.id', '=', 'fiches.utilisateur_id')
             ->join('services', 'fiches.service_id', '=', 'services.id')
             ->join('categories', 'fiches.categorie_id', '=', 'categories.id')
@@ -67,7 +71,7 @@ class FicheController extends Controller
             ->join('nature_actes', 'fiches.nature_acte_id', '=', 'nature_actes.id')
             ->get();
 
-            
+
 
         return datatables()->of($fiches)
             ->editColumn('service_id', function ($user) {
@@ -89,11 +93,11 @@ class FicheController extends Controller
                 return $user->acte;
             })
             ->editColumn('url_pdf', function ($fiche) {
-                $link = '<a id="view_pdf" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-pdf="'. $fiche->url_pdf .'">'
-               .  $fiche->url_pdf  .
-             ' </a>';
+                $link = '<a id="view_pdf" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-pdf="' . $fiche->url_pdf . '">'
+                    .  $fiche->url_pdf  .
+                    ' </a>';
 
-              return $link;
+                return $link;
             })
             ->rawColumns(['url_pdf'])
             /* ->editColumn('etat', function ($sscat) {
@@ -167,13 +171,13 @@ class FicheController extends Controller
             'commentaire' => 'required|min:3|max:255|regex:/^[A-Za-z é è \' . - é à è ç ( ) $ * î 0-9]+$/'
         ]);
 
-        
+
 
         $montant_aide = $request->get('montant_aide') == NULL ? 0 : $request->get('montant_aide');
 
-       // $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
-       $num_enregistrement = DB::table('fiches')->count();
-       $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $num_enregistrement. ".pdf";
+        // $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $request->get('numero_acte') . ".pdf";
+        $num_enregistrement = DB::table('fiches')->count();
+        $nom_fichier = "[CCAS de St-Louis]-" . date('d-m-Y') . '-' . $num_enregistrement . ".pdf";
 
 
         $new_fiche = new fiche([
@@ -196,6 +200,26 @@ class FicheController extends Controller
         $new_fiche->save();
 
         File::move(public_path('storage/temp_pdf/') .  $request->get('nom_pdf'), public_path('storage/pdf/') . $nom_fichier);
+
+        $pdf = new Fpdi('P');
+        $pagecount = $pdf->setSourceFile(public_path('storage/pdf/') . $nom_fichier);
+
+        for ($pageno = 1; $pageno <= $pagecount; $pageno++) {
+            
+            $tpl = $pdf->importPage($pageno);
+            
+            $pdf->AddPage();
+
+            $pdf->useTemplate($tpl);
+
+            $pdf->SetFont('Helvetica');
+            $pdf->SetFontSize('10');
+            $pdf->SetXY(10, 10);
+            if ($pageno === 1)
+            {$pdf->Cell(0, 2, $nom_fichier, 0, 0, 'C');}
+        }
+
+        $pdf->Output('F', public_path('storage/pdf/') . $nom_fichier);
 
         flash('Fiche créée.');
         return redirect('fiches');
@@ -229,7 +253,7 @@ class FicheController extends Controller
 
         $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
 
-       
+
         return view('fiches.edit', compact('fiche', 'categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
     }
 
