@@ -26,7 +26,7 @@
             <th scope="col">Service </th>
             <th scope="col">Auteur </th>
             <th scope="col">Catégorie</th>
-            <th scope="col">Sous-Catégorie</th>
+            <th scope="col">Type de l'act   e</th>
             <th scope="col">PDF</th>
             <th scope="col">N° de l'acte</th>
             <th scope="col"></th>

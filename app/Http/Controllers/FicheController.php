@@ -222,7 +222,7 @@ class FicheController extends Controller
         $pdf->Output('F', public_path('storage/pdf/') . $nom_fichier);
 
         flash('Fiche créée.');
-        return redirect('fiches');
+        return redirect('mes-fiches');
     }
 
     /**
@@ -251,7 +251,7 @@ class FicheController extends Controller
         $nature_actes = nature_acte::all();
         $type_benefs = type_beneficiaire::all();
 
-        $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
+        $sous_categories = sous_categorie::where('categorie_id', '=', $fiche->categorie_id)->get();
 
 
         return view('fiches.edit', compact('fiche', 'categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));

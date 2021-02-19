@@ -266,7 +266,7 @@ class FichesAdminController extends Controller
         $nature_actes = nature_acte::all();
         $type_benefs = type_beneficiaire::all();
 
-        $sous_categories = sous_categorie::where('categorie_id', '=', $id)->get();
+        $sous_categories = sous_categorie::where('categorie_id', '=', $fiche->categorie_id)->get();
 
 
         return view('fiches_admin.edit', compact('fiche', 'categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
