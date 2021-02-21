@@ -98,7 +98,7 @@
                         <a href="{{route('ss-categories.create')}}">-> Créer un type</a>
                     </div>
                 </div>
-                <a data-bs-toggle="collapse" href="#menu_actes" role="button" aria-expanded="false" aria-controls="collapseExample" class="list-group-item list-group-item-action bg-light">Actes</a>
+                <a data-bs-toggle="collapse" href="#menu_actes" role="button" aria-expanded="false" aria-controls="collapseExample" class="list-group-item list-group-item-action bg-light">Natures des actes</a>
                 <div class="collapse" id="menu_actes">
                     <div class="card card-body lien-menu">
                         <a href="/actes">-> Voir la liste</a> <br>
@@ -119,7 +119,7 @@
                         <a href="{{route('beneficiaires.create')}}">-> Créer un bénéficiaire</a>
                     </div>
                 </div>
-                <a data-bs-toggle="collapse" href="#menu_fiches" role="button" aria-expanded="false" aria-controls="collapseExample" class="list-group-item list-group-item-action bg-light">Fiches</a>
+                <a data-bs-toggle="collapse" href="#menu_fiches" role="button" aria-expanded="false" aria-controls="collapseExample" class="list-group-item list-group-item-action bg-light">Actes</a>
                 <div class="collapse" id="menu_fiches">
                     <div class="card card-body lien-menu">
                         <a href="/fiches_admin">-> Voir la liste</a> <br>

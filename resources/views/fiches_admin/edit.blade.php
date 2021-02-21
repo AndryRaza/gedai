@@ -4,12 +4,12 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/fiches_admin">Fiches</a></li>
-        <li class="breadcrumb-item"><a href="{{route('fiches_admin.edit',$fiche->id)}}">Modifier une fiche</a></li>
+        <li class="breadcrumb-item"><a href="/fiches_admin">Actes</a></li>
+        <li class="breadcrumb-item"><a href="{{route('fiches_admin.edit',$fiche->id)}}">Modifier un acte</a></li>
     </ol>
 </nav>
 
-<h1 class="text-center">Modifier la fiche n°{{$fiche ->id }}</h1>
+<h1 class="text-center">Modifier l'acte n°{{$fiche ->id }}</h1>
 
 
 <div class="container">

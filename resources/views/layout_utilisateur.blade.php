@@ -66,10 +66,10 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Gedai</div>
             <div class="list-group list-group-flush">
-                <span class="d-flex justify-content-center mb-2"> <a href="{{route('fiches.create')}}"><button class="btn btn-primary">Créer une fiche</button></a> </span>
+                <span class="d-flex justify-content-center mb-2"> <a href="{{route('fiches.create')}}"><button class="btn btn-primary">Créer un acte</button></a> </span>
 
-                <a href="/fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">Fiches</a>
-                <a href="/mes-fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">Mes fiches</a>
+                <a href="/fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">Actes</a>
+                <a href="/mes-fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">Mes actes</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->

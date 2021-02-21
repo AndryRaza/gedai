@@ -4,8 +4,8 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/fiches">Fiches</a></li>
-        <li class="breadcrumb-item"><a href="{{route('fiches.create')}}">Ajouter une fiche</a></li>
+        <li class="breadcrumb-item"><a href="/fiches">Actes</a></li>
+        <li class="breadcrumb-item"><a href="{{route('fiches.create')}}">Ajouter un acte</a></li>
     </ol>
 </nav>
 

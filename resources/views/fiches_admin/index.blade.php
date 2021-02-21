@@ -5,7 +5,7 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/fiches_admin">Fiches</a></li>
+        <li class="breadcrumb-item"><a href="/fiches_admin">Actes</a></li>
     </ol>
 </nav>
 
@@ -15,7 +15,7 @@
     @include('flash::message')
 </div>
 
-<h1 class="text-center">Liste des fiches </h1>
+<h1 class="text-center">Liste des actes </h1>
 <table class="table table-bordered table-striped table-hover" id="laravel_datatable">
     <thead>
         <tr>

@@ -4,8 +4,8 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/fiches_admin">Fiches</a></li>
-        <li class="breadcrumb-item"><a href="{{route('fiches_admin.show',$fiche->id)}}">Fiche n°{{$fiche->id}}</a></li>
+        <li class="breadcrumb-item"><a href="/fiches_admin">Actes</a></li>
+        <li class="breadcrumb-item"><a href="{{route('fiches_admin.show',$fiche->id)}}">Acte n°{{$fiche->id}}</a></li>
     </ol>
 </nav>
 

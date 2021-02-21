@@ -13,13 +13,13 @@ color:red;
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/mes-fiches">Mes Fiches</a></li>
+        <li class="breadcrumb-item"><a href="/mes-fiches">Mes actes</a></li>
     </ol>
 </nav>
 
 <h1 class="text-center my-5">
 
-    Mes fiches
+    Mes actes
 
 </h1>
 
