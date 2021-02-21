@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css')}}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href=" {{ asset('css/simple-sidebar.css')}} ">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.7.3/themes/base/jquery-ui.css">
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -55,6 +56,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+
+    <!-- Autocomplete -->
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
 
 </head>
 

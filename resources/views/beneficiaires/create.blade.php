@@ -1,3 +1,4 @@
+
 @extends('layout_administrateur')
 
 @section('content')
@@ -98,4 +99,12 @@
         <p class="mb-3"> *Champs non obligatoires </p>
     </form>
 </div>
+
+
+
 @endsection
+
+@push('scripts')
+<script src="{{asset('javascript/script_api_adresse.js')}}">
+</script>
+@endpush

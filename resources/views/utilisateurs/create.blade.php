@@ -56,7 +56,7 @@
             @endif
         </div>
         <div class="mb-3">
-            <label for="telephone" class="form-label">Téléphone de l'utilisateur*</label>
+            <label for="telephone" class="form-label">Téléphone de l'utilisateur</label>
             <input type="phone" class="form-control {{ $errors->has('telephone') ? 'is-invalid' : '' }}" id="telephone" name="telephone" placeholder="Ex: 01234567" value="{{old('telephone')}}">
             @if($errors->has('telephone'))
             <div class="text-danger ">{{ $errors->first('telephone') }}</div>
@@ -73,7 +73,7 @@
             @endif
         
         </div>
-        <p class="text-muted">*Non obligatoire</p>
+
         <button type="submit" class="btn btn-primary mb-5">Créer l'utilisateur</button>
     </form>
 </div>
