@@ -1,4 +1,3 @@
-
 @extends('layout_administrateur')
 
 @section('content')
@@ -56,6 +55,23 @@
             @if($errors->has('adresse'))
             <div class="text-danger ">{{ $errors->first('adresse') }}</div>
             @endif
+        </div>
+
+        <div class="mb-3 row row-cols-2">
+            <div class="col">
+                <label for="code_postal" class="form-label">Code postal</label>
+                <input type="text" class="form-control {{ $errors->has('code_postal') ? 'is-invalid' : '' }}" id="code_postal" name="code_postal" placeholder="97410" value="{{old('code_postal')}}">
+                @if($errors->has('code_postal'))
+                <div class="text-danger ">{{ $errors->first('code_postal') }}</div>
+                @endif
+            </div>
+            <div class="col">
+                <label for="ville" class="form-label">Ville</label>
+                <input type="text" class="form-control {{ $errors->has('ville') ? 'is-invalid' : '' }}" id="ville" name="ville" placeholder="Saint-Pierre" value="{{old('ville')}}">
+                @if($errors->has('ville'))
+                <div class="text-danger ">{{ $errors->first('ville') }}</div>
+                @endif
+            </div>
         </div>
 
         <div class="mb-3">

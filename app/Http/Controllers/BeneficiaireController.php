@@ -90,14 +90,15 @@ class BeneficiaireController extends Controller
     {
         $request->validate([
             'nom'=>'required|min:3|max:255|regex:/^[A-Za-z]+$/',
-            'prenom'=>'required|min:3|max:255|regex:/^[A-Za-z]+$/',
+            'prenom'=>'required|min:3|max:255|regex:/^[A-Za-z é è - ]+$/',
             'type_benef'=>'required|integer',
             'organisme'=>'required|min:3|max:255|regex:/^[A-Za-z é è \' . -]+$/',
             'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . ,]+$/',
             'tel_fixe'=>'integer|nullable',
             'tel_mobile'=>'integer|nullable',
             'email'=>'required|email',
-
+            'code_postal'=>'required|regex:/^[0-9]{5}$/',
+            'ville'=>'required|regex:/^[A-Za-z é è \' . -]+$/',
             'etat'=>'required|integer'
         ]);
 
@@ -109,7 +110,7 @@ class BeneficiaireController extends Controller
             'prenom'=> $request->get('prenom'),
             'type_beneficiaire_id'=> $request->get('type_benef'),
             'organisme'=> $request->get('organisme'),
-            'adresse'=> $request->get('adresse'),
+            'adresse'=> $request->get('adresse') . ' '. $request->get('code_postal') . ' '. $request->get('ville')  ,
             'tel_fixe'=> $tel_fixe,
             'tel_mobile'=>$tel_mobile,
             'email'=> $request->get('email'),
