@@ -68,7 +68,11 @@
             <div class="list-group list-group-flush">
                 <span class="d-flex justify-content-center mb-2"> <a href="{{route('fiches.create')}}"><button class="btn btn-primary">Créer un acte</button></a> </span>
 
-                <a href="/fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">Actes</a>
+                <a href="/fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
+                    </svg>
+                    Actes</a>
                 <a href="/mes-fiches" class="list-group-item list-group-item-action bg-light" id="list-dashboard">Mes actes</a>
             </div>
         </div>
@@ -82,21 +86,21 @@
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                   
+
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="text-center mt-1 mr-5">   <strong style="font-size:20px;color:red">{{auth()->user()->service->service}}</strong></li>
+                        <li class="text-center mt-1 mr-5"> <strong style="font-size:20px;color:red">{{auth()->user()->service->service}}</strong></li>
                         <li class="mr-3 mt-2"><strong>
-               
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mb-1 bi bi-person-lines-fill" viewBox="0 0 16 16">
                                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                                 </svg>
                                 Connecté : {{auth()->user()->nom}} {{auth()->user()->prenom}}</strong>
-                          <br>
-                             
-               
+                            <br>
+
+
                         </li>
                         <li class="nav-item">
                             <a href="/deconnexion" class="btn btn-primary">Déconnexion
