@@ -16,20 +16,28 @@
         @csrf
 
         <div class="mb-3">
-            <label for="nom" class="form-label">Nom du bénéficiaire</label>
-            <input type="text" class="form-control {{ $errors->has('nom') ? 'is-invalid' : '' }}" id="nom" name="nom" placeholder="Ex: Doe" value="{{old('nom')}}">
-            @if($errors->has('nom'))
-            <div class="text-danger ">{{ $errors->first('nom') }}</div>
-            @endif
+            <div class="row row-cols-md-2 row-cols-1">
+                <div class="col">
+                    <label for="nom" class="form-label">Nom du bénéficiaire</label>
+                    <input type="text" class="form-control {{ $errors->has('nom') ? 'is-invalid' : '' }}" id="nom" name="nom" placeholder="Ex: Doe" value="{{old('nom')}}">
+                    @if($errors->has('nom'))
+                    <div class="text-danger ">{{ $errors->first('nom') }}</div>
+                    @endif
+                </div>
+
+                <div class="col">
+                    <label for="prenom" class="form-label">Prénom du bénéficiaire</label>
+                    <input type="text" class="form-control {{ $errors->has('prenom') ? 'is-invalid' : '' }}" id="prenom" name="prenom" placeholder="Ex: John" value="{{old('prenom')}}">
+                    @if($errors->has('prenom'))
+                    <div class="text-danger ">{{ $errors->first('prenom') }}</div>
+                    @endif
+                </div>
+            </div>
         </div>
 
 
         <div class="mb-3">
-            <label for="prenom" class="form-label">Prénom du bénéficiaire</label>
-            <input type="text" class="form-control {{ $errors->has('prenom') ? 'is-invalid' : '' }}" id="prenom" name="prenom" placeholder="Ex: John" value="{{old('prenom')}}">
-            @if($errors->has('prenom'))
-            <div class="text-danger ">{{ $errors->first('prenom') }}</div>
-            @endif
+
         </div>
 
         <div class="mb-3">
@@ -75,19 +83,33 @@
         </div>
 
         <div class="mb-3">
-            <label for="tel_fixe" class="form-label">Téléphone fixe*</label>
-            <input type="phone" class="form-control {{ $errors->has('tel_fixe') ? 'is-invalid' : '' }}" id="tel_fixe" name="tel_fixe" placeholder="01234567" value="{{old('tel_fixe')}}">
-            @if($errors->has('tel_fixe'))
-            <div class="text-danger">{{ $errors->first('tel_fixe') }}</div>
-            @endif
+
+            <div class="row row-cols-md-2 row-cols-1">
+
+                <div class="col">
+
+                    <label for="tel_fixe" class="form-label">Téléphone fixe*</label>
+                    <input type="phone" class="form-control {{ $errors->has('tel_fixe') ? 'is-invalid' : '' }}" id="tel_fixe" name="tel_fixe" placeholder="01234567" value="{{old('tel_fixe')}}">
+                    @if($errors->has('tel_fixe'))
+                    <div class="text-danger">{{ $errors->first('tel_fixe') }}</div>
+                    @endif
+                </div>
+
+
+                <div class="col">
+                    <label for="tel_mobile" class="form-label">Téléphone mobile*</label>
+                    <input type="phone" class="form-control {{ $errors->has('tel_mobile') ? 'is-invalid' : '' }}" id="tel_mobile" name="tel_mobile" placeholder="01234567" value="{{old('tel_mobile')}}">
+                    @if($errors->has('tel_mobile'))
+                    <div class="text-danger">{{ $errors->first('tel_mobile') }}</div>
+                    @endif
+                </div>
+                
+            </div>
+
         </div>
 
         <div class="mb-3">
-            <label for="tel_mobile" class="form-label">Téléphone mobile*</label>
-            <input type="phone" class="form-control {{ $errors->has('tel_mobile') ? 'is-invalid' : '' }}" id="tel_mobile" name="tel_mobile" placeholder="01234567" value="{{old('tel_mobile')}}">
-            @if($errors->has('tel_mobile'))
-            <div class="text-danger">{{ $errors->first('tel_mobile') }}</div>
-            @endif
+
         </div>
 
         <div class="mb-3">
@@ -110,9 +132,13 @@
             <div class="text-danger ">{{ $errors->first('etat') }}</div>
             @endif
         </div>
-
-        <button class="btn btn-primary mb-3" type="submit">Ajouter</button>
         <p class="mb-3"> *Champs non obligatoires </p>
+
+        <span class="d-flex justify-content-end">
+            <button class="btn btn-primary mb-3" type="submit">Ajouter</button>
+        </span>
+
+
     </form>
 </div>
 

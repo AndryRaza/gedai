@@ -16,11 +16,11 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td class="table-dark">Créé le </td>
+                    <td class="table-dark fw-bolder">Créé le </td>
                     <td>{{ date('d-m-Y', strtotime($utilisateur->created_at)) }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Dernière modification le </td>
+                    <td class="table-dark fw-bolder">Dernière modification le </td>
                     <td>{{ date('d-m-Y H:i', strtotime($utilisateur->updated_at)) }}</td>
                 </tr>
             </tbody>
@@ -29,11 +29,11 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td class="table-dark">Rôle</td>
+                    <td class="table-dark fw-bolder">Rôle</td>
                     <td>{{ $utilisateur->role->role }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Service </td>
+                    <td class="table-dark fw-bolder">Service </td>
                     <td>{{ $utilisateur->service->service}}</td>
                 </tr>
             </tbody>
@@ -41,7 +41,7 @@
 
         <h3>Liste des fiches de  {{ $utilisateur->nom }} {{ $utilisateur->prenom }}</h3>
         <table class="table table-bordered">
-            <thead class="table-dark">
+            <thead class="table-dark fw-bolder">
                 <th>Fiche</th>
                 <th>Bénéficiaire</th>
                 <th>Créée le</th>
@@ -65,23 +65,23 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td class="table-dark">Nom </td>
+                    <td class="table-dark fw-bolder">Nom </td>
                     <td>{{ $utilisateur->nom }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Prénom </td>
+                    <td class="table-dark fw-bolder">Prénom </td>
                     <td>{{ $utilisateur->prenom }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Adresse électronique </td>
+                    <td class="table-dark fw-bolder">Adresse électronique </td>
                     <td>{{ $utilisateur->email}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Téléphone </td>
+                    <td class="table-dark fw-bolder">Téléphone </td>
                     <td>{{ $utilisateur->telephone }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Etat </td>
+                    <td class="table-dark fw-bolder">Etat </td>
                     <td>{{ $utilisateur->etat == 1 ? 'Actif' : 'Inactif' }}</td>
                 </tr>
             </tbody>

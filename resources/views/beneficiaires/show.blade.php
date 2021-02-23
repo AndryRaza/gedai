@@ -16,26 +16,26 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td class="table-dark">Inscrit le </td>
+                    <td class="table-dark fw-bolder">Inscrit le </td>
                     <td>{{ date('d-m-Y', strtotime($beneficiaire->created_at))}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Dernière modification</td>
+                    <td class="table-dark fw-bolder">Dernière modification</td>
                     <td> {{ date('d-m-Y H:i', strtotime($beneficiaire->updated_at))}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Type de bénéficiaire</td>
+                    <td class="table-dark fw-bolder">Type de bénéficiaire</td>
                     <td> {{ $beneficiaire->type_beneficiaire->type}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Organisme</td>
+                    <td class="table-dark fw-bolder">Organisme</td>
                     <td> {{ $beneficiaire->organisme}}</td>
                 </tr>
             </tbody>
         </table>
         <h3>Fiches du bénéficiaire</h3>
         <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+            <thead class="table-dark fw-bolder">
                 <tr>
                     <th>Fiche</th>
                     <th>Créée le</th>
@@ -60,27 +60,27 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td class="table-dark">Nom </td>
+                    <td class="table-dark fw-bolder">Nom </td>
                     <td>{{ $beneficiaire->nom}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Prénom</td>
+                    <td class="table-dark fw-bolder">Prénom</td>
                     <td> {{ $beneficiaire->prenom}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Adresse</td>
+                    <td class="table-dark fw-bolder">Adresse</td>
                     <td> {{ $beneficiaire->adresse}}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Téléphone fixe</td>
+                    <td class="table-dark fw-bolder">Téléphone fixe</td>
                     <td> {{ $beneficiaire->tel_fixe == 0 ? 'Pas de numéro' : $beneficiaire->tel_fixe }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Téléphone mobile</td>
+                    <td class="table-dark fw-bolder">Téléphone mobile</td>
                     <td> {{ $beneficiaire->tel_mobile == 0 ? 'Pas de numéro' : $beneficiaire->tel_mobile }}</td>
                 </tr>
                 <tr>
-                    <td class="table-dark">Adresse électronique</td>
+                    <td class="table-dark fw-bolder">Adresse électronique</td>
                     <td> {{ $beneficiaire->email}}</td>
                 </tr>
             </tbody>
