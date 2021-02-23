@@ -79,9 +79,21 @@ Route::group(
 
         Route::get('/administration', function () {
             $categories = DB::table('categories')->where('etat','=','1')->get();
+            $nbre_categories = DB::table('categories')->count();
+
             $utilisateurs = DB::table('utilisateurs')->latest()->limit(5)->get();
+            $nbre_utilisateurs = DB::table('utilisateurs')->count();
+
             $fiches = DB::table('fiches')->latest()->limit(5)->get();
-            return view('administration',compact('categories','utilisateurs','fiches'));
+            $nbre_actes = DB::table('fiches')->count();
+
+            $nbre_types = DB::table('sous_categories')->count();
+            
+            $nbre_natures = DB::table('nature_actes')->count();
+
+            $nbre_beneficiaires = DB::table('beneficiaires')->count();
+
+            return view('administration',compact('categories','utilisateurs','fiches','nbre_utilisateurs','nbre_actes','nbre_categories','nbre_types','nbre_natures','nbre_beneficiaires'));
         });
 
         Route::get('/administration/stat/{id}', 'AdministrateurController@choix_cate');
