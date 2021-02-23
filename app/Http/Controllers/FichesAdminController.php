@@ -228,7 +228,7 @@ class FichesAdminController extends Controller
 
         $pdf->Output('F', public_path('storage/pdf/') . $nom_fichier);
 
-        flash('Fiche créée.');
+        flash('Acte créé');
         return redirect('fiches_admin');
     }
 
@@ -316,7 +316,7 @@ class FichesAdminController extends Controller
 
         $fiche->save();
         Log::info( 'L\'acte  '. $nom_fichier.' a été modifié');
-        flash('Fiche modifiée');
+        flash('Acte modifié');
         return redirect('fiches_admin');
     }
 
