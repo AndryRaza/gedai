@@ -88,7 +88,7 @@
                 Chiffres clés
             </h2>
             <div class="d-flex">
-                <div class="card m-auto bg-info text-white" style="width: 18rem;">
+                <div class="card m-auto bg-info text-white bg-gradient" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center">Utilisateurs</h5>
 
@@ -96,7 +96,7 @@
                     </div>
                 </div>
 
-                <div class="card m-auto bg-info text-white" style="width: 18rem;">
+                <div class="card m-auto bg-info text-white bg-gradient" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center ">Actes</h5>
                         <p class="card-text text-center fs-3">{{$nbre_actes}}</p>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="d-flex mt-3">
-                <div class="card m-auto bg-info text-white" style="width: 18rem;">
+                <div class="card m-auto bg-info text-white bg-gradient" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center">Catégories</h5>
 
@@ -114,7 +114,7 @@
                     </div>
                 </div>
 
-                <div class="card m-auto bg-info text-white" style="width: 18rem;">
+                <div class="card m-auto bg-info text-white bg-gradient" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center ">Types d'acte</h5>
                         <p class="card-text text-center fs-3">{{$nbre_types}}</p>
@@ -171,20 +171,6 @@
 
 </div> -->
 
-<section class="px-2">
-
-    <div class="row row-cols-md-2 row-cols-1">
-        <div class="col">
-            <h2 class="text-center">Commandes</h2>
-            <div class="d-flex justify-content-center">
-                <a href="/delete_tmp"> <button class=" btn btn-primary m-2">Vider le dossier temporaire</button> </a>
-                <a target="_blank" href="/admin/log-reader"><button class="btn btn-danger mt-2">Voir les logs</button> </a>
-
-            </div>
-        </div>
-    </div>
-
-</section>
 
 @endsection
 

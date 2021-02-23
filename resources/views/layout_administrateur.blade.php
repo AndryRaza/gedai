@@ -71,7 +71,7 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading" style="font-size:30px;">Gedai v1.0</div>
+            <div class="sidebar-heading" style="font-size:30px;">Gedai</div>
             <div class="list-group list-group-flush">
                 <a href="/administration" class="list-group-item list-group-item-action bg-light" id="list-dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill mr-2" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
@@ -158,6 +158,22 @@
                         <a href="{{route('fiches_admin.create')}}">-> Créer un acte</a>
                     </div>
                 </div>
+
+                <a data-bs-toggle="collapse" href="#configuration" role="button" aria-expanded="false" aria-controls="collapseExample" class="list-group-item list-group-item-action bg-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                    </svg>
+                    Configurations 
+                    <p class="text-muted text-center"> v1.0</p> 
+
+                </a>
+                <div class="collapse" id="configuration">
+                    <div class="card card-body lien-menu">
+                        <a href="/delete_tmp"> <button class=" btn btn-primary m-2">Vider le dossier temporaire</button> </a>
+                        <a class="text-center" target="_blank" href="/admin/log-reader"><button class="btn btn-danger mt-2">Voir les logs</button> </a>
+                    </div>
+                </div>
+
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
