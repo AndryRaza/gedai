@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\service;
 use Illuminate\Support\Facades\flash;
+use Illuminate\Support\Facades\Log;
 
 class ConnexionController extends Controller
 {
@@ -31,6 +32,7 @@ class ConnexionController extends Controller
 
         if ($result) {
             flash('Connexion réussie');
+            Log::info(auth()->user()->nom . ' '. auth()->user()->prenom . ' s\'est connecté');
             return redirect('/utilisateur');
         } else {
             flash('Connexion échouée')->error();
@@ -64,6 +66,7 @@ class ConnexionController extends Controller
 
         if ($result) {
             flash('Connexion réussie');
+            Log::info('L\'admin s\'est connecté');
             return redirect('/administration');
         } else {
             flash('Connexion échouée')->error();
@@ -72,6 +75,7 @@ class ConnexionController extends Controller
     }
 
     public function deconnexion(){
+        Log::info('Déconnexion');
         auth::logout();
         return redirect('');
     }

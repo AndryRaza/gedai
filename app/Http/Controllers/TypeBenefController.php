@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\type_beneficiaire;
 use DataTables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class TypeBenefController extends Controller
 {
@@ -79,6 +80,7 @@ class TypeBenefController extends Controller
 
         $new_type->save();
 
+        Log::info( 'Le type de bénéficiaire "'.$new_type->type .'"'. ' a été créé.');
         flash('Type de bénéficiaire ajouté.');
         return redirect('types_benef');
     }
@@ -127,6 +129,7 @@ class TypeBenefController extends Controller
 
         $type->save();
 
+        Log::info( 'Le type de bénéficiaire "'.$type->type .'"'. ' a été modifié.');
         flash('Type de bénéficiaire modifié');
         return redirect('types_benef');
     }
@@ -148,6 +151,7 @@ class TypeBenefController extends Controller
         $type->etat = 0; 
 
         $type->save();
+        Log::info( 'Le type de bénéficiaire "'.$type->type .'"'. ' a été désactivé.');
 
         return redirect('types_benef');
     }
@@ -158,6 +162,7 @@ class TypeBenefController extends Controller
         $type->etat = 1; 
 
         $type->save();
+        Log::info( 'Le type de bénéficiaire "'.$type->type .'"'. ' a été activé.');
 
         return redirect('types_benef');
     }

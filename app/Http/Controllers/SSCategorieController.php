@@ -7,7 +7,7 @@ use App\categorie;
 use App\sous_categorie;
 use DataTables;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class SSCategorieController extends Controller
 {
@@ -89,6 +89,8 @@ class SSCategorieController extends Controller
         $new_sscategorie->save();
 
         flash('Type d\'acte ajouté');
+        Log::info( 'Le type d\'acte "'.$new_sscategorie->sous_categorie .'"'. ' a été créé.');
+        
         return redirect('ss-categories');
     }
 
@@ -138,6 +140,7 @@ class SSCategorieController extends Controller
         $sscategorie->etat = $request->get('etat');
 
         $sscategorie->save();
+        Log::info( 'Le type d\'acte "'.$sscategorie->sous_categorie .'"'. ' a été modifié.');
         flash('Type d\'acte modifié');
         return redirect('ss-categories');
     }
@@ -159,6 +162,7 @@ class SSCategorieController extends Controller
         $sscategorie->etat = 0; 
 
         $sscategorie->save();
+        Log::info( 'Le type d\'acte "'.$sscategorie->sous_categorie .'"'. ' a été désactivé.');
 
         return redirect('ss-categories');
     }
@@ -169,6 +173,7 @@ class SSCategorieController extends Controller
         $sscategorie->etat = 1; 
 
         $sscategorie->save();
+        Log::info( 'Le type d\'acte "'.$sscategorie->sous_categorie .'"'. ' a été activé.');
 
         return redirect('ss-categories');
     }

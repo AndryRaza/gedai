@@ -4,19 +4,19 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/actes">Actes</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('actes.create')}}">Ajouter un acte</a></li>
+    <li class="breadcrumb-item"><a href="/actes">Natures des actes</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('actes.create')}}">Ajouter une nature</a></li>
   </ol>
 </nav>
 
-<h1 class="text-center">Ajouter un acte</h1>
+<h1 class="text-center">Ajouter une nature</h1>
 
 <div class="container">
     <form action="{{ route('actes.store') }}" method="post">
         @csrf
 
         <div class="mb-3">
-            <label for="nom" class="form-label">Nom de l'acte</label>
+            <label for="nom" class="form-label">Nom de la nature de l'acte</label>
             <input type="text" class="form-control {{ $errors->has('nom') ? 'is-invalid' : '' }}" id="nom" name="nom" placeholder="Ex: Commande publique" value="{{old('nom')}}">
             @if($errors->has('nom'))
             <div class="text-danger ">{{ $errors->first('nom') }}</div>

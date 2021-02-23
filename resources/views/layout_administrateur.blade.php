@@ -123,7 +123,7 @@
                 <div class="collapse" id="menu_fiches">
                     <div class="card card-body lien-menu">
                         <a href="/fiches_admin">-> Voir la liste</a> <br>
-                        <a href="{{route('fiches_admin.create')}}">-> Créer une fiche</a>
+                        <a href="{{route('fiches_admin.create')}}">-> Créer un acte</a>
                     </div>
                 </div>
                 <a class="d-flex justify-content-center" href="/delete_tmp"> <button class="btn btn-primary mt-2">Vider le dossier temporaire</button> </a>

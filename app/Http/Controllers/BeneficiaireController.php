@@ -7,6 +7,7 @@ use App\beneficiaire;
 use App\type_beneficiaire;
 use DataTables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class BeneficiaireController extends Controller
 {
@@ -94,8 +95,8 @@ class BeneficiaireController extends Controller
             'type_benef'=>'required|integer',
             'organisme'=>'required|min:3|max:255|regex:/^[A-Za-z é è \' . -]+$/',
             'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . ,]+$/',
-            'tel_fixe'=>'integer|nullable',
-            'tel_mobile'=>'integer|nullable',
+            'tel_fixe'=>'regex:/^[0-9]{9}$/|nullable',
+            'tel_mobile'=>'regex:/^[0-9]{9}$/|nullable',
             'email'=>'required|email',
             'code_postal'=>'required|regex:/^[0-9]{5}$/',
             'ville'=>'required|regex:/^[A-Za-z é è \' . -]+$/',
@@ -119,6 +120,7 @@ class BeneficiaireController extends Controller
 
         $new_benef->save();
 
+        Log::info( 'Le bénéficiaire '.$new_benef->nom . ' '. $new_benef->prenom .' a été créé.');
         flash('Bénéficiaire ajouté.');
         return redirect('beneficiaires');
     }
@@ -164,10 +166,10 @@ class BeneficiaireController extends Controller
     {
         $request->validate([
             'nom'=>'required|min:3|max:255|regex:/^[A-Za-z]+$/',
-            'prenom'=>'required|min:3|max:255|regex:/^[A-Za-z]+$/',
+            'prenom'=>'required|min:3|max:255|regex:/^[A-Za-z é è -]+$/',
             'type_benef'=>'required|integer',
             'organisme'=>'required|min:3|max:255|regex:/^[A-Za-z é è \' . -]+$/',
-            'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . ,]+$/',
+            'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . , -]+$/',
             'tel_fixe'=>'regex:/^[0-9]{9}$/|nullable',
             'tel_mobile'=>'regex:/^[0-9]{9}$/|nullable',
             'email'=>'required|email',
@@ -189,6 +191,7 @@ class BeneficiaireController extends Controller
 
         $benef->save();
 
+        Log::info( 'Le bénéficiaire '.$benef->nom . ' '. $benef->prenom .' a été modifié.');
         flash('Bénéficiaire modifié.');
         return redirect('beneficiaires');
 
@@ -212,6 +215,7 @@ class BeneficiaireController extends Controller
         $benef->etat = 0;
 
         $benef->save();
+        Log::info( 'Le bénéficiaire '.$benef->nom . ' '. $benef->prenom .' a été désactivé.');
 
         return redirect('beneficiaires');
     }
@@ -223,6 +227,7 @@ class BeneficiaireController extends Controller
         $benef->etat = 1;
 
         $benef->save();
+        Log::info( 'Le bénéficiaire '.$benef->nom . ' '. $benef->prenom .' a été activé.');
 
         return redirect('beneficiaires');
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\UtilisateurController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
+
 date_default_timezone_set('Indian/Reunion');
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,8 @@ Route::group(
         'middleware' => 'App\Http\Middleware\Admin',
     ],
     function () {
+
+        
 
         Route::resource('utilisateurs', 'UtilisateurController');
         Route::get('utilisateurs/desactivate/{id}', 'UtilisateurController@desactivate');

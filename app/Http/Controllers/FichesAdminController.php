@@ -15,7 +15,7 @@ use DataTables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Support\Facades\Log;
 use setasign\Fpdi\Fpdi;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
@@ -133,23 +133,17 @@ class FichesAdminController extends Controller
      */
     public function create()
     {
-        $categories = categorie::all();
-        $sous_categories = sous_categorie::all();
-        $beneficiaires = beneficiaire::all();
-        $nature_actes = nature_acte::all();
-        $type_benefs = type_beneficiaire::all();
+        $categories = DB::table('categories')->where('etat','=',1)->get();
+        $sous_categories = DB::table('sous_categories')->where('etat','=',1)->get();
+        $beneficiaires =DB::table('beneficiaires')->where('etat','=',1)->get();
+        $nature_actes = DB::table('nature_actes')->where('etat','=',1)->get();
+        $type_benefs = DB::table('type_beneficiaires')->where('etat','=',1)->get();
 
         return view('fiches_admin.create', compact('categories', 'sous_categories', 'beneficiaires', 'nature_actes', 'type_benefs'));
     }
 
     public function storepdf(Request $request)
     {
-
-        $categories = categorie::all();
-        $sous_categories = sous_categorie::all();
-        $beneficiaires = beneficiaire::all();
-        $nature_actes = nature_acte::all();
-        $type_benefs = type_beneficiaire::all();
 
         $request->validate(
             [
@@ -211,7 +205,7 @@ class FichesAdminController extends Controller
         ]);
 
         $new_fiche->save();
-
+        Log::info( 'L\'acte  '. $nom_fichier.' a été créée par '. auth()->user()->nom . ' '. auth()->user()->prenom. '.');
         File::move(public_path('storage/temp_pdf/') .  $request->get('nom_pdf'), public_path('storage/pdf/') . $nom_fichier);
 
         $pdf = new Fpdi('P');
@@ -321,6 +315,7 @@ class FichesAdminController extends Controller
         }
 
         $fiche->save();
+        Log::info( 'L\'acte  '. $nom_fichier.' a été modifié');
         flash('Fiche modifiée');
         return redirect('fiches_admin');
     }
@@ -349,6 +344,7 @@ class FichesAdminController extends Controller
         $fiche->etat = 0;
 
         $fiche->save();
+        Log::info( 'L\'acte n°'. $id.' a été désactivé');
 
         return redirect('fiches_admin');
     }
@@ -360,6 +356,7 @@ class FichesAdminController extends Controller
         $fiche->etat = 1;
 
         $fiche->save();
+        Log::info( 'L\'acte n°'. $id.' a été activé');
 
         return redirect('fiches_admin');
     }

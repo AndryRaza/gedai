@@ -7,7 +7,7 @@ use App\categorie;
 use Illuminate\Auth\Events\Validated;
 use DataTables;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class CategorieController extends Controller
 {
@@ -97,7 +97,9 @@ class CategorieController extends Controller
 
         $new_categorie->save();
 
+        Log::info( 'La catégorie "'.$new_categorie->categorie .'"'. ' a été créée.');
         flash('Catégorie ajoutée');
+
         return redirect('categories');
     }
 
@@ -144,6 +146,7 @@ class CategorieController extends Controller
         $categorie->etat = $request->get('etat');
 
         $categorie->save();
+        Log::info( 'La catégorie "'.$categorie->categorie .'"'. ' a été modifiée.');
 
         flash('Catégorie modifiée');
         return redirect('categories');
@@ -167,6 +170,7 @@ class CategorieController extends Controller
         $categorie->etat = 0;
 
         $categorie->save();
+        Log::info( 'La catégorie "'.$categorie->categorie .'"'. ' a été désactivée.');
 
         //return redirect('categories');
     }
@@ -177,6 +181,7 @@ class CategorieController extends Controller
         $categorie = categorie::find($id);
         $categorie->etat = 1;
 
+        Log::info( 'La catégorie "'.$categorie->categorie .'"'. ' a été activée.');
         $categorie->save();
 
        // return redirect('categories');

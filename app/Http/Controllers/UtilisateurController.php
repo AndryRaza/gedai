@@ -11,7 +11,7 @@ use DataTables;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Log;
 
 class UtilisateurController extends Controller
 {
@@ -118,6 +118,8 @@ class UtilisateurController extends Controller
         ]);
     
         $utilisateur->save();
+        
+        Log::info('L\'utilisateur '.$utilisateur->nom . ' ' . $utilisateur->prenom . ' a été créé.');
 
         flash('Utilisateur ajouté');
         return redirect('/utilisateurs');
@@ -194,6 +196,7 @@ class UtilisateurController extends Controller
         $utilisateur->save();
 
         flash('Utilisateur '.$utilisateur->nom.' modifié.');
+        Log::info('L\'utilisateur '.$utilisateur->nom . ' ' . $utilisateur->prenom . ' a été modifié.');
         return redirect('/utilisateurs');
     }
 
@@ -218,6 +221,8 @@ class UtilisateurController extends Controller
 
         $utilisateur->save();
 
+        Log::info('L\'utilisateur '.$utilisateur->nom . ' ' . $utilisateur->prenom . ' a été désactivé.');
+
         return redirect('/utilisateurs');
     }
     
@@ -227,6 +232,7 @@ class UtilisateurController extends Controller
         $utilisateur->etat = 1; 
 
         $utilisateur->save();
+        Log::info('L\'utilisateur '.$utilisateur->nom . ' ' . $utilisateur->prenom . ' a été activé.');
 
         return redirect('/utilisateurs');
     }

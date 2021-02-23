@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\Log;
 use setasign\Fpdi\Fpdi;
 
 use App\Mail\ContactMail;
@@ -198,6 +198,7 @@ class FicheController extends Controller
         ]);
 
         $new_fiche->save();
+        Log::info( 'L\'acte  '. $nom_fichier.' a été créée par '. auth()->user()->nom . ' '. auth()->user()->prenom. '.');
 
         File::move(public_path('storage/temp_pdf/') .  $request->get('nom_pdf'), public_path('storage/pdf/') . $nom_fichier);
 
@@ -304,6 +305,7 @@ class FicheController extends Controller
         }
 
         $fiche->save();
+        Log::info( 'L\'acte '. $nom_fichier.' a été modifiée.');
         flash('Fiche modifiée');
         return redirect('fiches');
     }
@@ -332,6 +334,7 @@ class FicheController extends Controller
         $fiche->etat = 0;
 
         $fiche->save();
+        Log::info( 'L\'acte  n°'. $id.' a été désactivée.');
 
         return redirect('fiches');
     }

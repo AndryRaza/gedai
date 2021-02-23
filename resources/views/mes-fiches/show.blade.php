@@ -47,7 +47,7 @@
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td class="table-dark">Montant de l'aide</td>
+                    <td class="table-dark">Montant de l'aide (en €)</td>
                     <td>{{ $fiche->montant_aide }}</td>
                 </tr>
                 <tr>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\nature_acte;
 use DataTables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ActeController extends Controller
 {
@@ -81,7 +82,9 @@ class ActeController extends Controller
 
         $new_acte->save();
 
-        flash('Acte ajouté');
+        flash('Une nature d\'un acte a été ajouté');
+        Log::info( '"'.$new_acte->acte .'"'. ' a été créé.');
+
         return redirect('actes');
     }
 
@@ -129,7 +132,8 @@ class ActeController extends Controller
 
         $acte->save();
 
-        flash('Acte modifié');
+        flash('La nature de l\'acte a été modifiée');
+        Log::info( '"'.$acte->acte .'"'. ' a été modifié.');
         return redirect('actes');
     }
 
@@ -150,6 +154,7 @@ class ActeController extends Controller
         $acte->etat = 0; 
 
         $acte->save();
+        Log::info( '"'.$acte->acte .'"'. ' a été désactivé.');
 
         return redirect('actes');
     }
@@ -160,6 +165,7 @@ class ActeController extends Controller
         $acte->etat = 1; 
 
         $acte->save();
+        Log::info( '"'.$acte->acte .'"'. ' a été activé.');
 
         return redirect('actes');
     }

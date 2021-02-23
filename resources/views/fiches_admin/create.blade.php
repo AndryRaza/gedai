@@ -9,9 +9,9 @@
     </ol>
 </nav>
 
-<h1 class="text-center my-3">Créer une fiche</h1>
+<h1 class="text-center my-3">Créer un acte</h1>
 
-<div class="container">
+<div>
 
     <h2 class="text-center mt-2">Choisir le pdf à afficher</h2>
 
