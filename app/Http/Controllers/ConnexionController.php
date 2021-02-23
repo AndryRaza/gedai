@@ -32,7 +32,7 @@ class ConnexionController extends Controller
 
         if ($result) {
             flash('Connexion réussie');
-            Log::info(auth()->user()->nom . ' '. auth()->user()->prenom . ' s\'est connecté');
+            Log::warning(auth()->user()->nom . ' '. auth()->user()->prenom . ' s\'est connecté');
             return redirect('/utilisateur');
         } else {
             flash('Connexion échouée')->error();
@@ -66,7 +66,7 @@ class ConnexionController extends Controller
 
         if ($result) {
             flash('Connexion réussie');
-            Log::info('L\'admin s\'est connecté');
+            Log::warning('L\'admin s\'est connecté');
             return redirect('/administration');
         } else {
             flash('Connexion échouée')->error();
@@ -75,7 +75,7 @@ class ConnexionController extends Controller
     }
 
     public function deconnexion(){
-        Log::info('L\'utilisateur '.auth()->user()->nom .' '.auth()->user()->prenom . ' s\'est déconnecté');
+        Log::warning('L\'utilisateur '. auth()->user()->nom .' '.auth()->user()->prenom . ' s\'est déconnecté');
         auth::logout();
         return redirect('');
     }

@@ -62,9 +62,7 @@
 
 </div>
 
-<div class="mt-5 pl-3">
-<a href="/admin/log-reader"><button class="btn btn-danger">Voir les logs</button> </a>
-</div>
+
 
 @endsection
 

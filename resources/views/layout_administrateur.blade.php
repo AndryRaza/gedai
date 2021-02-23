@@ -126,7 +126,8 @@
                         <a href="{{route('fiches_admin.create')}}">-> Créer un acte</a>
                     </div>
                 </div>
-                <a class="d-flex justify-content-center" href="/delete_tmp"> <button class="btn btn-primary mt-2">Vider le dossier temporaire</button> </a>
+                <a class="d-flex justify-content-center" href="/delete_tmp"> <button class="btn btn-primary m-2">Vider le dossier temporaire</button> </a>
+                <a class="text-center" href="/admin/log-reader"><button class="btn btn-danger mt-2">Voir les logs</button> </a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
