@@ -15,12 +15,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('bootstrap-template/css/bootstrap.css')}}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href=" {{ asset('css/simple-sidebar.css')}} ">
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('bootstrap-template/js/bootstrap.bundle.min.js')}}"></script>
 
     <!--
     <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>

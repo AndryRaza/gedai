@@ -20,13 +20,13 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('bootstrap-template/css/bootstrap.css')}}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href=" {{ asset('css/simple-sidebar.css')}} ">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.7.3/themes/base/jquery-ui.css">
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('bootstrap-template/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- CDN pour yajra datatable     
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
