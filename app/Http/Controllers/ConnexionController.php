@@ -75,7 +75,7 @@ class ConnexionController extends Controller
     }
 
     public function deconnexion(){
-        Log::info('Déconnexion');
+        Log::info('L\'utilisateur '.auth()->user()->nom .' '.auth()->user()->prenom . ' s\'est déconnecté');
         auth::logout();
         return redirect('');
     }
