@@ -66,7 +66,7 @@
     $('body').on('click', '#view_pdf', function() {
         var pdf = $(this).data('pdf');
         console.log(pdf);
-        var str = ` <iframe class="w-100 h-100" src="{{asset('storage/pdf/` + pdf + `')}}" style="max-height:400px;"></iframe>`
+        var str = ` <iframe class="w-100 h-100" src="{{asset('public/storage/pdf/` + pdf + `')}}" style="max-height:400px;"></iframe>`
         console.log(str)
         $('.modal-body').html(str);
     })
