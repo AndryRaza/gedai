@@ -43,16 +43,16 @@ class CategorieController extends Controller
             ->addColumn('désactiver', function ($row) {
 
                 if ($row->etat === 1) {
-                    $switch = '<div class="form-check form-switch pl-5">
+                    $btn = '<div class="form-check form-switch pl-5">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked  value="' . $row->id . '">
               </div>';
                 }
                 if ($row->etat === 0) {
-                    $switch = '<div class="form-check form-switch pl-5">
+                    $btn = '<div class="form-check form-switch pl-5">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  value="' . $row->id . '">
               </div>';
                 }
-                return $switch;
+                return $btn;
             })
         
             ->editColumn('etat', function ($sscat) {
