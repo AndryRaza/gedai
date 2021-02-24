@@ -91,11 +91,15 @@
 
         <div class="mb-3">
             <label for="etat" class="form-label">Etat</label>
-            <input type="number" class="form-control" id="etat" name="etat" placeholder="Ex: 0" value="{{ $utilisateur-> etat }}">
+            <select class="form-control  {{ $errors->has('etat') ? 'is-invalid' : '' }}" id="etat" name="etat">
+                <option value="0" {{ $utilisateur->etat == '0' ? 'selected' : ''}}>Inactif</option>
+                <option value="1" {{ $utilisateur->etat == '1' ? 'selected' : ''}}>Actif </option>
+            </select>
             @if($errors->has('etat'))
             <div class="text-danger ">{{ $errors->first('etat') }}</div>
             @endif
         </div>
+
         <span class="d-flex justify-content-end mb-2">
             <button type="submit" class="btn btn-primary">Modifier</button>
         </span>
