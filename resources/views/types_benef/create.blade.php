@@ -4,10 +4,10 @@
 
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/types_benef">Types de bénéficiaires</a></li>
-    <li class="breadcrumb-item"><a href="{{route('types_benef.create')}}">Ajouter un type de bénéficiaire</a></li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/types_benef">Types de bénéficiaires</a></li>
+        <li class="breadcrumb-item"><a href="{{route('types_benef.create')}}">Ajouter un type de bénéficiaire</a></li>
+    </ol>
 </nav>
 
 <h1 class="text-center">Ajouter un type de bénéficiaire</h1>
@@ -34,7 +34,9 @@
             <div class="text-danger ">{{ $errors->first('etat') }}</div>
             @endif
         </div>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <span class="d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Ajouter</button>
+        </span>
     </form>
 </div>
 

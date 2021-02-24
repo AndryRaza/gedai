@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\utilisateur;
 use App\role;
-use App\Service;
+use App\service;
 use Auth;
 use DataTables;
 use Illuminate\Support\Facades\Hash;

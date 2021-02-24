@@ -3,17 +3,17 @@
 @section('content')
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/utilisateurs">Utilisateur</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('utilisateurs.edit', $utilisateur->id) }}">Modifier un utilisateur</a></li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/utilisateurs">Utilisateur</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('utilisateurs.edit', $utilisateur->id) }}">Modifier un utilisateur</a></li>
+    </ol>
 </nav>
 
 <h1 class="text-center">Modifier un utilisateur</h1>
 
 
 <div class="container text-center w-50 mt-5">
-@include('flash::message')
+    @include('flash::message')
 </div>
 
 <div class="container">
@@ -53,7 +53,7 @@
             <label for="role" class="form-label">Service</label>
             <select class="form-control {{ $errors->has('service') ? 'is-invalid' : '' }}" id="service" name="service">
                 @foreach($services as $service)
-                <option value="{{ $service-> id }}" {{ $utilisateur->service_id == $service->id ? 'selected' : ''}} >{{ $service -> service }}</option>
+                <option value="{{ $service-> id }}" {{ $utilisateur->service_id == $service->id ? 'selected' : ''}}>{{ $service -> service }}</option>
                 @endforeach
             </select>
             @if($errors->has('service'))
@@ -96,9 +96,9 @@
             <div class="text-danger ">{{ $errors->first('etat') }}</div>
             @endif
         </div>
-
-        <button type="submit" class="btn btn-primary">Modifier</button>
-
+        <span class="d-flex justify-content-end mb-2">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+        </span>
     </form>
 </div>
 @endsection

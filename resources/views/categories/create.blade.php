@@ -3,10 +3,10 @@
 @section('content')
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/categories">Catégories</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('categories.create')}}">Ajouter une catégorie</a></li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/categories">Catégories</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('categories.create')}}">Ajouter une catégorie</a></li>
+    </ol>
 </nav>
 
 
@@ -32,7 +32,9 @@
             <div class="text-danger ">{{ $errors->first('etat') }}</div>
             @endif
         </div>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <span class="d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Ajouter</button>
+        </span>
     </form>
 </div>
 @endsection

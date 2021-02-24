@@ -3,10 +3,10 @@
 @section('content')
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/actes">Natures des actes</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('actes.create')}}">Ajouter une nature</a></li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/actes">Natures des actes</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('actes.create')}}">Ajouter une nature</a></li>
+    </ol>
 </nav>
 
 <h1 class="text-center">Ajouter une nature</h1>
@@ -33,7 +33,9 @@
             <div class="text-danger ">{{ $errors->first('etat') }}</div>
             @endif
         </div>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <span class="d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Ajouter</button>
+        </span>
     </form>
 </div>
 

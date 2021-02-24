@@ -5,7 +5,7 @@
 <h1 class="text-center">Modifier la fiche n°{{$fiche ->id }}</h1>
 
 
-<div >
+<div>
     <div class="row row-cols-md-2 row-cols-1">
         <div class="col">
             <form action="{{ route('fiches.update',$fiche->id) }}" method="post" enctype="multipart/form-data">
@@ -63,9 +63,9 @@
                 <div class="mb-3">
                     <label for="type_acte" class="form-label">Type de l'acte</label>
                     <select class="form-control" id="type_acte" name="type_acte">
-                    @foreach($sous_categories as $sous_categorie)
-                    <option value="{{$sous_categorie->id}}" {{$sous_categorie->id == $fiche->sous_categorie_id ? 'selected' : ''}}>{{ $sous_categorie -> sous_categorie}}</option>
-                    @endforeach
+                        @foreach($sous_categories as $sous_categorie)
+                        <option value="{{$sous_categorie->id}}" {{$sous_categorie->id == $fiche->sous_categorie_id ? 'selected' : ''}}>{{ $sous_categorie -> sous_categorie}}</option>
+                        @endforeach
                     </select>
                     @if($errors->has('type_acte'))
                     <div class="text-danger ">{{ $errors->first('type_acte') }}</div>
@@ -116,7 +116,9 @@
                 </div>
 
                 <input type="hidden" name="nom_url" value="{{ $fiche->url_pdf }}">
-                <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
+                <span class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
+                </span>
                 <p class="mb-3"> *Champ non obligatoire </p>
             </form>
         </div>

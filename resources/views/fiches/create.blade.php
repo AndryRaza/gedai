@@ -133,7 +133,9 @@
                 
                 -->
                 <div id="nom_pdf"></div>
-                <span class="d-flex justify-content-end"> <button type="submit" class="btn btn-primary mb-2">Enregistrer</button> </span>
+                <span class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
+                </span>
                 <p class="mb-3"> *Champ non obligatoire </p>
             </form>
         </div>
