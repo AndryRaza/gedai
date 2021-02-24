@@ -197,7 +197,7 @@
                 timeout: 600000,
                 success: function(reponse) {
                     document.getElementById('nom_pdf').innerHTML = `<input type="hidden" name="nom_pdf" value="` + reponse + `">`
-                    document.getElementById('affichage_pdf').innerHTML = ` <iframe class="w-100 h-100" src="{{asset('storage/temp_pdf/` + reponse + `')}}"></iframe>`
+                    document.getElementById('affichage_pdf').innerHTML = ` <iframe class="w-100 h-100" src="{{asset('public/storage/temp_pdf/` + reponse + `')}}"></iframe>`
                     document.getElementById('affichage_formulaire').className += ' row-cols-md-2';
                     document.getElementById('formulaire_fiche').style.display = 'block';
                 }
