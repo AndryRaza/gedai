@@ -132,7 +132,7 @@
         </div>
 
         <div class="col">
-            <iframe class="w-100 h-100" src="{{ asset('storage/pdf/'.$fiche->url_pdf) }}"></iframe>
+            <iframe class="w-100 h-100" src="{{ asset('public/storage/pdf/'.$fiche->url_pdf) }}"></iframe>
         </div>
     </div>
 </div>
