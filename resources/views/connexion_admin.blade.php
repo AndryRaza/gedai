@@ -20,19 +20,19 @@
             <div class="container text-center mt-2 ">
                 @include('flash::message')
             </div>
-            <div class="mb-3">
-                <label class="form-label">Adresse e-mail : </label>
-                <input class="form-control" type="email" name="email" value="{{ old('email') }}">
+            <div class="form-floating mb-3">
+                <input class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="nom@mail.com">
                 @if($errors->has('email'))
                 <p class="help is-danger">{{ $errors->first('email') }}</p>
                 @endif
+                <label class="form-label">Adresse e-mail : </label>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Mot de passe :</label>
-                <input class="form-control" type="password" name="password">
+            <div class="form-floating mb-3">
+                <input class="form-control" type="password" name="password" placeholder="Mot de passe">
                 @if($errors->has('password'))
                 <p class="help is-danger">{{ $errors->first('password') }}</p>
                 @endif
+                <label class="form-label">Mot de passe :</label>
             </div>
             <button class="btn btn-primary mb-3" type="submit">Se connecter</button>
             <a class="text-center" href="/"> Retour à la connexion utilisateur </a>
