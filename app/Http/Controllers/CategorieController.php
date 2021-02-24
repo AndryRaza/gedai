@@ -31,29 +31,29 @@ class CategorieController extends Controller
                 return $btn;
             })
             
-            /*
+      
             ->addColumn('désactiver', function ($row) {
                 if ($row->etat == 1)
                 {  $btn = '<a href="categories/desactivate/' . $row->id . '"  class="btn btn-danger"> Désactiver </a>';}
                 else  {  $btn = '<a href="categories/activate/' . $row->id . '"  class="btn btn-success"> Activer </a>';}
                   return $btn;
             })
-            */
             
-            ->addColumn('désactiver', function ($row) {
+            
+            // ->addColumn('désactiver', function ($row) {
 
-                if ($row->etat === 1) {
-                    $btn = '<div class="form-check form-switch pl-5">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked  value="' . $row->id . '">
-              </div>';
-                }
-                if ($row->etat === 0) {
-                    $btn = '<div class="form-check form-switch pl-5">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  value="' . $row->id . '">
-              </div>';
-                }
-                return $btn;
-            })
+            //     if ($row->etat === 1) {
+            //         $btn = '<div class="form-check form-switch pl-5">
+            //     <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked  value="' . $row->id . '">
+            //   </div>';
+            //     }
+            //     if ($row->etat === 0) {
+            //         $btn = '<div class="form-check form-switch pl-5">
+            //     <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  value="' . $row->id . '">
+            //   </div>';
+            //     }
+            //     return $btn;
+            // })
         
             ->editColumn('etat', function ($sscat) {
                 if ($sscat->etat === 1) {
