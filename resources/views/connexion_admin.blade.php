@@ -13,7 +13,7 @@
 
 <body>
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="height:100vh">
-        <form class="d-flex flex-column p-5 border border-primary " action="" method="post">
+        <form class="d-flex flex-column p-5 border border-primary " method="post">
             {{ csrf_field() }}
             <h1 class="text-center mb-3 text-danger">GEDAI - Administrateur</h1>
             <h3>Gestion Electronique des Décisions et Arrêtés Individuels</h3>
