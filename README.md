@@ -41,30 +41,30 @@ L’interface doit comprendre plusieurs formulaires :
 | En tant que  |  je veux | afin de | critères d'acceptations |
 |--|--|--|---------|
 | Administrateur | créer des comptes| la possibilité à mes employés de se connecter à l'application |  Création d'un compte avec : nom, prénoms, email, mot de passe, service (lors de la création ce champ est vide), téléphone, rôle, état |
-|Administrateur | voir les informations d'un utilisateur | voir s'il n'y a pas d'erreur | Récupération des informations de l'utilisateur et voir les fiches qu'il a créées |
+|Administrateur | voir les informations d'un utilisateur | voir s'il n'y a pas d'erreur | Récupération des informations de l'utilisateur et voir les actes qu'il a créés |
 | Administrateur | modifier des comptes| corriger s'il y a une erreur de saisie | Récupération des informations du compte afin de modifier les erreurs |
-| Administrateur | désactiver des comptes| protéger mon application et ne pas laisser la possibilité à des anciens employés de s'y reconnecter | Récupération de l'id du compte et le désactiver |
-| Administrateur | créer des catégories | pouvoir classer les documents | - Création d'une catégorie avec saisie du nom et de l'état |
+| Administrateur | désactiver des comptes| protéger mon application si jamais  des anciens employés tentent de s'y reconnecter | Récupération de l'id du compte et le désactiver |
+| Administrateur | créer des catégories | pouvoir classer les documents |  Création d'une catégorie avec saisie du nom et de l'état |
 | Administrateur | modifier des catégories| corriger s'il y a une erreur de saisie | Récupération des informations de la catégorie afin de modifier les erreurs |
-| Administrateur | désactiver des catégories| retirer les catégories obsolétes | Récupération de l'id de la catégorie et la désactiver |
-| Administrateur | créer des types d'acte | pouvoir classer les documents | - Création d'un type d'acte avec saisie du nom, de la catégorie où il se trouve et de l'état |
+| Administrateur | désactiver des catégories| retirer les catégories obsolètes | Récupération de l'id de la catégorie et la désactiver |
+| Administrateur | créer des types d'acte | pouvoir classer les documents | Création d'un type d'acte avec saisie du nom, de la catégorie où il se trouve et de l'état |
 | Administrateur | modifier des types d'acte| corriger s'il y a une erreur de saisie | Récupération des informations du type d'acte afin de modifier les erreurs |
-| Administrateur | désactiver des types d'acte| retirer les types d'acte obsolétes | Récupération de l'id du type d'acte et le désactiver |
-| Administrateur | créer des natures d'acte | pouvoir classer les documents | - Création d'une nature d'acte avec saisie du nom et de l'état |
+| Administrateur | désactiver des types d'acte| retirer les types d'acte obsolètes | Récupération de l'id du type d'acte et le désactiver |
+| Administrateur | créer des natures d'acte | pouvoir classer les documents | Création d'une nature d'acte avec saisie du nom et de l'état |
 | Administrateur | modifier des natures d'acte| corriger s'il y a une erreur de saisie | Récupération des informations de la nature d'acte afin de modifier les erreurs |
 | Administrateur | désactiver des natures d'acte| retirer les natures d'acte obsolétes | Récupération de l'id de la nature d'acte et la désactiver |
-| Administrateur | créer des types de bénéficiaire | pouvoir identifier les différents bénéficiaires | - Création d'un type de bénéficiaire avec saisie du nom et de l'état |
+| Administrateur | créer des types de bénéficiaire | pouvoir identifier les différents bénéficiaires |  Création d'un type de bénéficiaire avec saisie du nom et de l'état |
 | Administrateur | modifier des types de bénéficiaire| corriger s'il y a une erreur de saisie | Récupération des informations du type de bénéficiaire afin de modifier les erreurs |
-| Administrateur | désactiver des types de bénéficiaire | retirer les types de bénéficiaire obsolétes | Récupération de l'id du type de bénéficiaire et le désactiver |
-| Administrateur | créer des bénéficiaires | pouvoir cibler les destinataires des actes | - Création d'un bénéficiaire avec : nom, prénoms, adresse, organisme, téléphone fixe (facultatif), téléphone mobile (facultatif), adresse électronique |
+| Administrateur | désactiver des types de bénéficiaire | retirer les types de bénéficiaire obsolètes | Récupération de l'id du type de bénéficiaire et le désactiver |
+| Administrateur | créer des bénéficiaires | pouvoir cibler les destinataires des actes |  Création d'un bénéficiaire avec : nom, prénoms, adresse, organisme, téléphone fixe (facultatif), téléphone mobile (facultatif), adresse électronique |
 |Administrateur | voir les informations d'un bénéficiaire | voir s'il n'y a pas d'erreur | Récupération des informations du bénéficiaire ainsi que les actes dont il est le destinataire |
 | Administrateur | modifier des bénéficiaires| corriger s'il y a une erreur de saisie | Récupération des informations du bénéficiaire afin de modifier les erreurs |
-| Administrateur | désactiver des bénéficiaires| plus afficher les bénéficiaires lors de la saisie des actes | Récupération de l'id de la nature d'acte et la désactiver |
+| Administrateur | désactiver des bénéficiaires| ne plus afficher les bénéficiaires lors de la saisie des actes | Récupération de l'id de la nature d'acte et la désactiver |
 |Administrateur | voir la liste des actes créés et leurs informations | voir s'il n'y a pas d'erreur | Récupération de la liste des actes et possibilité de cliquer sur un acte pour voir ses informations |
 | Administrateur | créer des actes | pouvoir numériser les documents |  Création d'un acte avec : date d'enregistrement, date de l'acte, numéro de l'acte, nature de l'acte, catégorie de l'acte, type d'acte, destinataire, montant de l'aide (facultatif), mots-clés, commentaire, télécharger le pdf sur lequel se trouve les informations à saisir et l'enregistrer en même temps que l'acte |
 | Administrateur | modifier des actes| corriger s'il y a une erreur de saisie | Récupération des informations de l'acte afin de modifier les erreurs ou de change le pdf|
 | Administrateur | désactiver des actes| d'archiver les actes  | Récupération de l'id de l'acte  et le désactiver |
-| Administrateur | pouvoir voir les logs de l'application | voir à l'instant T qui se connecte, qui créé des actes | Afficher les logs propremement en les classant par catégorie : Error, Warning, Info |
+| Administrateur | pouvoir voir les logs de l'application | voir à l'instant T qui se connecte, qui créé des actes, etc. | Afficher les logs propremement en les classant par catégorie : Error, Warning, Info |
 | Utilisateur | me connecter à l'application | créer des actes | Connexion avec une adresse électronique et un mot de passe |
 | Utilisateur | choisir mon service | voir uniquement les actes de mon service | Afficher les services disponibles et laisser le choix à l'utilisateur à sa connexion | 
 | Utilisateur | créer un acte | numériser les documents | Création d'un acte avec : date d'enregistrement, date de l'acte, numéro de l'acte, nature de l'acte, catégorie de l'acte, type d'acte, destinataire, montant de l'aide (facultatif), mots-clés, commentaire, télécharger le pdf sur lequel se trouve les informations à saisir et l'enregistrer en même temps que l'acte |
@@ -73,7 +73,10 @@ L’interface doit comprendre plusieurs formulaires :
 | Utilisateur | désactiver mes actes créés | archiver les documents | Récupération de l'id de l'acte et le désactiver |
 | Administrateur | me déconnecter | protéger mon compte | Supression des informations de session |
 | Utilisateur | me déconnecter | protéger mon compte | Supression des informations de session |
+| Administrateur | voir les statistiques | étudier les chiffres | Afficher le nombre d'actes des différentes types d'actes et la somme des montants d'aide | 
+## Backlog
 
+https://docs.google.com/spreadsheets/d/1o9njoRBdhVSW7JGdFDPSL5iV-9F2UMgxiLixpFYtlmI/edit?usp=sharing
 
 ## Wireframes
 
