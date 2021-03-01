@@ -93,7 +93,7 @@
 
                 <div class="mb-3">
                     <label for="beneficiaire" class="form-label">Bénéficiaire</label>
-                    <select class="form-control" id="beneficiaire" name="beneficiaire" >
+                    <select class="form-control" id="beneficiaire" name="beneficiaire">
                         @foreach($beneficiaires as $beneficiaire)
                         <option value="{{ $beneficiaire -> id}}" {{$beneficiaire->id == old('beneficiaire') ? 'selected' : ''}}> {{ $beneficiaire-> nom }} {{ $beneficiaire-> prenom }} </option>
                         @endforeach
@@ -157,8 +157,18 @@
 </script>
 
 <script>
-
     $('#beneficiaire').selectize();
+
+    $('#tags').selectize({
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
 
     function envoyer() {
         event.preventDefault();

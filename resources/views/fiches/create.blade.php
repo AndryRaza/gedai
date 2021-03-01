@@ -161,8 +161,18 @@
 
 
 <script>
+    $('#beneficiaire').selectize();
 
-    $('#beneficiaire').selectize(); 
+    $('#input-tags').selectize({
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
 
     $('#categorie_acte').change(function() {
         var value = $('#categorie_acte').val();
