@@ -17,7 +17,7 @@
 
     <div class=" d-flex justify-content-center mb-5">
         <form id="form">
-        @csrf
+            @csrf
             <div class="mb-3">
                 <input type="file" class="form-control" id="pdf" name="pdf" accept="application/pdf">
                 @if($errors->has('pdf'))
@@ -93,7 +93,7 @@
 
                 <div class="mb-3">
                     <label for="beneficiaire" class="form-label">Bénéficiaire</label>
-                    <select class="form-control" id="beneficiaire" name="beneficiaire">
+                    <select class="form-control" id="beneficiaire" name="beneficiaire" >
                         @foreach($beneficiaires as $beneficiaire)
                         <option value="{{ $beneficiaire -> id}}" {{$beneficiaire->id == old('beneficiaire') ? 'selected' : ''}}> {{ $beneficiaire-> nom }} {{ $beneficiaire-> prenom }} </option>
                         @endforeach
@@ -134,7 +134,7 @@
                 -->
                 <div id="nom_pdf"></div>
                 <span class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
                 </span>
                 <p class="mb-3"> *Champ non obligatoire </p>
             </form>
@@ -158,6 +158,8 @@
 
 <script>
 
+    $('#beneficiaire').selectize();
+
     function envoyer() {
         event.preventDefault();
         if (document.getElementById("pdf").value != "") {
@@ -173,14 +175,13 @@
                 cache: false,
                 timeout: 600000,
                 success: function(reponse) {
-                    document.getElementById('nom_pdf').innerHTML = `<input type="hidden" name="nom_pdf" value="`+reponse+`">`
-                    document.getElementById('affichage_pdf').innerHTML = ` <iframe class="w-100 h-100" src="{{asset('public/storage/temp_pdf/`+reponse + `')}}"></iframe>`
+                    document.getElementById('nom_pdf').innerHTML = `<input type="hidden" name="nom_pdf" value="` + reponse + `">`
+                    document.getElementById('affichage_pdf').innerHTML = ` <iframe class="w-100 h-100" src="{{asset('public/storage/temp_pdf/` + reponse + `')}}"></iframe>`
                     document.getElementById('affichage_formulaire').className += ' row-cols-md-2';
                     document.getElementById('formulaire_fiche').style.display = 'block';
                 }
             });
         }
     }
-
 </script>
 @endpush

@@ -161,6 +161,9 @@
 
 
 <script>
+
+    $('#beneficiaire').selectize(); 
+
     $('#categorie_acte').change(function() {
         var value = $('#categorie_acte').val();
         $.ajax({
