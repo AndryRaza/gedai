@@ -163,7 +163,7 @@
 <script>
     $('#beneficiaire').selectize();
 
-    $('#input-tags').selectize({
+    $('#tags').selectize({
         delimiter: ',',
         persist: false,
         create: function(input) {
@@ -177,7 +177,7 @@
     $('#categorie_acte').change(function() {
         var value = $('#categorie_acte').val();
         $.ajax({
-            url: "/create/selection_utilisateur/" + value,
+            url: "/create/selection_utilisateur/" + value,   
             type: 'GET',
             data: {},
             dataType: 'JSON',
