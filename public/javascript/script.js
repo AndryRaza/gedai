@@ -46,7 +46,7 @@ $(document).ready(function () {
                 }
 
                 document.getElementById('total_stat').innerHTML = 
-                `<tr class="table-secondary" style="font-size:20px" ><td class="d-flex justify-content-end" >Total</td>` + `<td class="text-center">` + sme + `</td>` + `<td class="text-center">` + sme_ + `</td></tr>`
+                `<tr class="table-secondary" style="font-size:20px" ><td class="d-flex justify-content-end" >Total</td>` + `<td class="text-center">` + parseInt(sme) + `</td>` + `<td class="text-center">` + parseInt(sme_) + `</td></tr>`
 
             },
             error: function (e) {
