@@ -42,7 +42,7 @@ $(document).ready(function () {
                 sme_ = 0;
                 for (i=0;i<data[0].length;i++){
                     sme = sme + data[1][i];
-                    sme_ = sme_ + data[2][i];
+                    sme_ =  Math.floor(sme_ + data[2][i]);
                 }
 
                 document.getElementById('total_stat').innerHTML = 
