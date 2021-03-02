@@ -41,8 +41,8 @@ $(document).ready(function () {
                 sme=0;
                 sme_ = 0;
                 for (i=0;i<data[0].length;i++){
-                    sme = sme + data[1][i];
-                    sme_ =  Math.floor(sme_ + data[2][i]);
+                    sme = sme + parseInt(data[1][i]);
+                    sme_ = sme_ + parseInt(data[2][i]);
                 }
 
                 document.getElementById('total_stat').innerHTML = 
