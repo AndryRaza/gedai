@@ -18,7 +18,7 @@
             <tbody>
             <tr>
                     <td class="table-dark">Document</td>
-                    <td> <a href="{{asset('storage/pdf/'. $fiche->url_pdf )}}" target="_blank"> {{$fiche->url_pdf}} </a></td>
+                    <td> <a href="{{asset('public/storage/pdf/'. $fiche->url_pdf )}}" target="_blank"> {{$fiche->url_pdf}} </a></td>
                 </tr>
            
                 <tr>

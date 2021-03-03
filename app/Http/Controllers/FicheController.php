@@ -275,7 +275,7 @@ class FicheController extends Controller
             'categorie_acte' => 'required',
             'type_acte' => 'required',
             'beneficiaire' => 'required',
-            'montant_aide' => 'integer|nullable',
+            'montant_aide' => 'regex:/^[0-9]+$/|nullable',
             'tags' => 'required',
             'pdf' => 'mimetypes:application/pdf|max:10000',
             'commentaire' => 'required|min:3|max:255|regex:/^[A-Za-z é è \' . - é à è ç ( )  $ * î 0-9]+$/'

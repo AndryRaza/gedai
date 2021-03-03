@@ -44,7 +44,6 @@ $(document).ready(function () {
                     sme = sme + parseInt(data[1][i]);
                     sme_ = sme_ + parseInt(data[2][i]);
                 }
-
                 document.getElementById('total_stat').innerHTML = 
                 `<tr class="table-secondary" style="font-size:20px" ><td class="d-flex justify-content-end" >Total</td>` + `<td class="text-center">` + parseInt(sme) + `</td>` + `<td class="text-center">` + parseInt(sme_) + `</td></tr>`
 
