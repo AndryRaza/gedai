@@ -133,4 +133,21 @@
 @push('scripts')
 <script src="{{asset('javascript/script.js')}}">
 </script>
+
+<script>
+    $('#beneficiaire').selectize();
+
+    $('#tags').selectize({
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+</script>
+
+
 @endpush
