@@ -39,7 +39,7 @@ class ConnexionController extends Controller
             return redirect('/utilisateur');
         } else {
             flash('Connexion échouée')->error();
-            Log::error($ip . ' a tenté de se connecter.');
+            Log::error($ip . ' a tenté de se connecter en tant qu\'utilisateur.');
             return redirect('');
         }
 
@@ -57,7 +57,7 @@ class ConnexionController extends Controller
             'password' => 'required'
         ]);
 
-
+        $ip = request()->ip();
 
         $result =  AUTH::attempt([
             'email' => request('email'),
@@ -74,7 +74,7 @@ class ConnexionController extends Controller
             return redirect('/administration');
         } else {
             flash('Connexion échouée')->error();
-            Log::error($ip . ' a tenté de se connecter.');
+            Log::error($ip . ' a tenté de se connecter en tant qu\'administrateur.');
             return redirect('/page_administration');
         }
     }
