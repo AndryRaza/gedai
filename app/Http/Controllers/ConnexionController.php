@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\service;
+use Exception;
 use Illuminate\Support\Facades\flash;
 use Illuminate\Support\Facades\Log;
 
@@ -23,19 +24,22 @@ class ConnexionController extends Controller
             'password' => 'required'
         ]);
 
+        $ip = request()->ip();
+
         $result =  AUTH::attempt([
             'email' => request('email'),
             'password' => request('password'),
             'role_id'=> 1,
             'etat'=>1
         ]);
-
+       
         if ($result) {
             flash('Connexion réussie');
             Log::warning(auth()->user()->nom . ' '. auth()->user()->prenom . ' s\'est connecté');
             return redirect('/utilisateur');
         } else {
             flash('Connexion échouée')->error();
+            Log::error($ip . ' a tenté de se connecter.');
             return redirect('');
         }
 
@@ -70,6 +74,7 @@ class ConnexionController extends Controller
             return redirect('/administration');
         } else {
             flash('Connexion échouée')->error();
+            Log::error($ip . ' a tenté de se connecter.');
             return redirect('/page_administration');
         }
     }
