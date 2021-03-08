@@ -110,7 +110,7 @@ Route::group(
         Route::resource('ss-categories', 'SSCategorieController');
         Route::get('ss-categories/desactivate/{id}', 'SSCategorieController@desactivate');
         Route::get('ss-categories/activate/{id}', 'SSCategorieController@activate');
-        Route::get('/ss-categorie-list', 'SsCategorieController@sscategorieList');
+        Route::get('/ss-categorie-list', 'SSCategorieController@sscategorieList');
 
         Route::resource('actes', 'ActeController');
         Route::get('actes/desactivate/{id}', 'ActeController@desactivate');
