@@ -95,8 +95,8 @@ class BeneficiaireController extends Controller
             'type_benef'=>'required|integer',
             'organisme'=>'required|min:3|max:255|regex:/^[A-Za-z é è \' . -]+$/',
             'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . ,]+$/',
-            'tel_fixe'=>'regex:/^[0-9]{9}$/|nullable',
-            'tel_mobile'=>'regex:/^[0-9]{9}$/|nullable',
+            'tel_fixe'=>'regex:/^[0-9]{10}$/|nullable',
+            'tel_mobile'=>'regex:/^[0-9]{10}$/|nullable',
             'email'=>'required|email',
             'code_postal'=>'required|regex:/^[0-9]{5}$/',
             'ville'=>'required|regex:/^[A-Za-z é è \' . -]+$/',
@@ -170,8 +170,8 @@ class BeneficiaireController extends Controller
             'type_benef'=>'required|integer',
             'organisme'=>'required|min:3|max:255|regex:/^[A-Za-z é è \' . -]+$/',
             'adresse'=>'required|min:3|max:255|regex:/^[A-Za-z0-9 é è \' . , -]+$/',
-            'tel_fixe'=>'regex:/^[0-9]{9}$/|nullable',
-            'tel_mobile'=>'regex:/^[0-9]{9}$/|nullable',
+            'tel_fixe'=>'regex:/^[0-9]{10}$/|nullable',
+            'tel_mobile'=>'regex:/^[0-9]{10}$/|nullable',
             'email'=>'required|email',
       
             'etat'=>'required|integer'
