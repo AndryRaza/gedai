@@ -64,7 +64,7 @@
         </div>
         <div class="mb-3">
             <label for="telephone" class="form-label">Téléphone de l'utilisateur</label>
-            <input type="phone" class="form-control {{ $errors->has('telephone') ? 'is-invalid' : '' }}" id="telephone" name="telephone" placeholder="Ex: 01234567" value="{{old('telephone')}}">
+            <input type="text" class="form-control {{ $errors->has('telephone') ? 'is-invalid' : '' }}" id="telephone" name="telephone" placeholder="Ex: 01234567" value="{{old('telephone')}}">
             @if($errors->has('telephone'))
             <div class="text-danger ">{{ $errors->first('telephone') }}</div>
             @endif

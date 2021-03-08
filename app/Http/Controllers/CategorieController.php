@@ -172,7 +172,7 @@ class CategorieController extends Controller
         $categorie->save();
         Log::info( 'La catégorie "'.$categorie->categorie .'"'. ' a été désactivée.');
 
-        //return redirect('categories');
+        return redirect('categories');
     }
 
     public function activate($id)
@@ -184,6 +184,6 @@ class CategorieController extends Controller
         Log::info( 'La catégorie "'.$categorie->categorie .'"'. ' a été activée.');
         $categorie->save();
 
-       // return redirect('categories');
+        return redirect('categories');
     }
 }

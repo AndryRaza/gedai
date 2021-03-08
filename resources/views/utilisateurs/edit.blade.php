@@ -69,21 +69,27 @@
             @endif
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="mdp" class="form-label">Ancien mot de passe</label>
             <input type="password" class="form-control" id="ancien_mdp" name="ancien_mdp">
-        </div>
+            @if($errors->has('ancien_mdp'))
+            <div class="text-danger ">{{ $errors->first('ancien_mdp') }}</div>
+            @endif
+        </div> -->
 
 
         <div class="mb-3">
             <label for="mdp" class="form-label">Nouveau mot de passe</label>
             <input type="password" class="form-control" id="mdp" name="mdp">
+            @if($errors->has('mdp'))
+            <div class="text-danger ">{{ $errors->first('mdp') }}</div>
+            @endif
         </div>
 
 
         <div class="mb-3">
             <label for="telephone" class="form-label">Téléphone de l'utilisateur</label>
-            <input type="phone" class="form-control" id="telephone" name="telephone" placeholder="Ex: 01234567" value="{{ $utilisateur-> telephone }}">
+            <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Ex: 01234567" value="{{'0'. $utilisateur-> telephone }}">
             @if($errors->has('telephone'))
             <div class="text-danger ">{{ $errors->first('telephone') }}</div>
             @endif

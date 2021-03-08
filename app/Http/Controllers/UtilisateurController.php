@@ -101,7 +101,7 @@ class UtilisateurController extends Controller
             'role'=>'required|integer',
             'email'=>'required|email',
             'mdp'=>'required',
-            'telephone'=>'regex:/^[0-9]{9}$/',
+            'telephone'=>'regex:/^[0-9]{10}$/',
             'etat'=>'required|integer',
         ]);
   
@@ -112,7 +112,7 @@ class UtilisateurController extends Controller
             'nom'=>$request->get('nom'),
             'prenom'=>$request->get('prenom'),
             'email'=>$request->get('email'),
-            'mot_de_passe'=>password_hash($request->get('mdp'),PASSWORD_BCRYPT),
+            'mot_de_passe'=>Hash::make($request->get('mdp')),
             'telephone'=>$request->get('telephone'),
             'etat'=>$request->get('etat')
         ]);
@@ -167,29 +167,32 @@ class UtilisateurController extends Controller
     {
         $utilisateur = utilisateur::find($id);
 
-        if (Hash::check($request->get('mdp'),$utilisateur->mot_de_passe))   
-        {
-            flash('Mot de passe incorrect')->error();
-            return back();
-        } 
-
+       
         $request->validate([
             'nom'=>'required|min:3|max:255|regex:/^[A-Za-z]+$/',
             'prenom'=>'required|min:3|max:255|regex:/^[A-Za-z]+$/',
             'role'=>'required|integer',
             'service'=>'required|integer',
             'email'=>'required|email',
-            'mdp'=>'required',
-            'telephone'=>'regex:/^[0-9]{9}$/',
+            // 'ancien_mdp'=>'required',
+            'mdp'=>'nullable',
+            'telephone'=>'regex:/^[0-9]{10}$/',
             'etat'=>'required|integer',
         ]);
             
+        // if (!(Hash::check($request->get('ancien_mdp'),$utilisateur->mot_de_passe)))   
+        // {
+        //     flash('Mot de passe incorrect')->error();
+        //     return back();  
+        // } 
+
+
         $utilisateur->nom = $request->get('nom');
         $utilisateur->prenom = $request->get('prenom');
         $utilisateur->role_id = $request->get('role');
         $utilisateur->service_id = $request->get('service');
         $utilisateur->email = $request->get('email');
-        $utilisateur->mot_de_passe = password_hash($request->get('mdp'),PASSWORD_BCRYPT);
+        $utilisateur->mot_de_passe = Hash::make($request->get('mdp'));
         $utilisateur->telephone = $request->get('telephone');
         $utilisateur->etat = $request->get('etat');
 
