@@ -67,7 +67,7 @@
 
         <div class="mb-3">
             <label for="tel_mobile" class="form-label">Téléphone mobile</label>
-            <input type="phone" class="form-control {{ $errors->has('tel_mobile') ? 'is-invalid' : '' }}" id="tel_mobile" name="tel_mobile" placeholder="01234567" value="{{'0'+$beneficiaire->tel_mobile}}">
+            <input type="phone" class="form-control {{ $errors->has('tel_mobile') ? 'is-invalid' : '' }}" id="tel_mobile" name="tel_mobile" placeholder="01234567" value="{{'0'.$beneficiaire->tel_mobile}}">
             @if($errors->has('tel_mobile'))
             <div class="text-danger">{{ $errors->first('tel_mobile') }}</div>
             @endif
