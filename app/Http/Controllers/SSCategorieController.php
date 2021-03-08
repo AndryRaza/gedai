@@ -47,7 +47,7 @@ class SSCategorieController extends Controller
                 return $sscat->categorie;
             })
             ->editColumn('etat',function($sscat){
-                if ($sscat->etat === 1){
+                if ($sscat->etat === '1'){
                     return 'Actif';
                 }else {return 'Inactif';}
             })
