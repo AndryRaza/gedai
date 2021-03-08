@@ -56,7 +56,7 @@ class CategorieController extends Controller
             // })
         
             ->editColumn('etat', function ($sscat) {
-                if ($sscat->etat === 1) {
+                if ($sscat->etat === '1') {
                     return 'Actif';
                 } else {
                     return 'Inactif';

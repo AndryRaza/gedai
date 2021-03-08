@@ -42,7 +42,7 @@ class TypeBenefController extends Controller
           
             ->rawColumns(['modifier','désactiver'])
             ->editColumn('etat',function($sscat){
-                if ($sscat->etat === 1){
+                if ($sscat->etat === '1'){
                     return 'Actif';
                 }else {return 'Inactif';}
             })
